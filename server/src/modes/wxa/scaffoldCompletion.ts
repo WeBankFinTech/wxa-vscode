@@ -7,15 +7,109 @@ export function doScaffoldComplete(): CompletionList {
       documentation: 'Scaffold <template>, <script> and <style>',
       kind: CompletionItemKind.Snippet,
       insertTextFormat: InsertTextFormat.Snippet,
-      insertText: `<template>
-\t\${0}
-</template>
-
-<script>
-export default {
+      insertText: `<script>
+export default class {
 
 }
 </script>
+
+<config>
+{
+  "navigationBarTitleText": ""
+}
+</config>
+
+<template>
+\t\${0}
+</template>
+
+<style>
+
+</style>
+`
+    },
+    {
+      label: 'Page',
+      documentation: 'Scaffold for wxa\'s Page template',
+      kind: CompletionItemKind.Snippet,
+      insertTextFormat: InsertTextFormat.Snippet,
+      insertText: `<script>
+import {Page} from '@wxa/core';
+
+@Page
+export default class {
+    onLoad(options) {
+      \${0}
+    }
+}
+</script>
+
+<config>
+{
+  "navigationBarTitleText": ""
+}
+</config>
+
+<template>
+<view class="page">
+
+</view>
+</template>
+
+<style>
+
+</style>
+`
+    },
+    {
+      label: 'App',
+      documentation: 'Scaffold for wxa\'s App template',
+      kind: CompletionItemKind.Snippet,
+      insertTextFormat: InsertTextFormat.Snippet,
+      insertText: `<script>
+import {App} from '@wxa/core';
+
+@App
+export default class {
+    onLaunch(options) {}
+}
+</script>
+
+<config>
+{
+    "pages": [
+        \${0}
+    ]
+}
+</config>
+
+<style>
+
+</style>
+`
+    },
+    {
+      label: 'Component',
+      documentation: 'Scaffold for wxa\'s Component template',
+      kind: CompletionItemKind.Snippet,
+      insertTextFormat: InsertTextFormat.Snippet,
+      insertText: `<script>
+export default class {
+    properties = {}
+
+    created() {}
+}
+</script>
+
+<config>
+{
+    "component": true
+}
+</config>
+
+<template>
+\${0}
+</template>
 
 <style>
 

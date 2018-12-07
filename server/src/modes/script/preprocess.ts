@@ -5,11 +5,11 @@ import { getDocumentRegions } from '../embeddedSupport';
 import { TextDocument } from 'vscode-languageserver-types';
 
 export function isVue(filename: string): boolean {
-  return path.extname(filename) === '.vue';
+  return path.extname(filename) === '.wxa';
 }
 
 export function parseVue(text: string): string {
-  const doc = TextDocument.create('test://test/test.vue', 'vue', 0, text);
+  const doc = TextDocument.create('test://test/test.wxa', 'wxa', 0, text);
   const regions = getDocumentRegions(doc);
   const script = regions.getEmbeddedDocumentByType('script');
   return script.getText() || 'export default {};';

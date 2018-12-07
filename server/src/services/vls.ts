@@ -43,7 +43,7 @@ export class VLS {
   private pendingValidationRequests: { [uri: string]: NodeJS.Timer } = {};
   private validationDelayMs = 200;
   private validation: { [k: string]: boolean } = {
-    'vue-html': true,
+    'wxa-html': true,
     html: true,
     css: true,
     scss: true,
@@ -100,6 +100,7 @@ export class VLS {
       this.removeDocument(e.document);
     });
     this.lspConnection.onDidChangeWatchedFiles(({ changes }) => {
+      console.log(changes);
       const jsMode = this.languageModes.getMode('javascript');
       changes.forEach(c => {
         if (c.type === FileChangeType.Changed) {
@@ -115,13 +116,13 @@ export class VLS {
   }
 
   configure(config: any): void {
-    const veturValidationOptions = config.vetur.validation;
-    this.validation['vue-html'] = veturValidationOptions.template;
-    this.validation.css = veturValidationOptions.style;
-    this.validation.postcss = veturValidationOptions.style;
-    this.validation.scss = veturValidationOptions.style;
-    this.validation.less = veturValidationOptions.style;
-    this.validation.javascript = veturValidationOptions.script;
+    const wxaValidationOptions = config.wxa.validation;
+    this.validation['wxa-html'] = wxaValidationOptions.template;
+    this.validation.css = wxaValidationOptions.style;
+    this.validation.postcss = wxaValidationOptions.style;
+    this.validation.scss = wxaValidationOptions.style;
+    this.validation.less = wxaValidationOptions.style;
+    this.validation.javascript = wxaValidationOptions.script;
 
     this.languageModes.getAllModes().forEach(m => {
       if (m.configure) {
@@ -333,7 +334,7 @@ export class VLS {
 
   doValidate(doc: TextDocument): Diagnostic[] {
     const diagnostics: Diagnostic[] = [];
-    if (doc.languageId === 'vue') {
+    if (doc.languageId === 'wxa') {
       this.languageModes.getAllModesInDocument(doc).forEach(mode => {
         if (mode.doValidation && this.validation[mode.getId()]) {
           pushAll(diagnostics, mode.doValidation(doc));

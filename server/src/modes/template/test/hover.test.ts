@@ -11,7 +11,7 @@ import { allTagProviders } from '../tagProviders';
 
 const html = hoverDSL({
   docUri: 'test://test/test.html',
-  langId: 'vue-html',
+  langId: 'wxa-html',
   doHover(document, position) {
     const htmlAST = parseHTMLDocument(document);
     return doHover(document, position, htmlAST, allTagProviders);

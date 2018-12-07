@@ -113,7 +113,7 @@ export function getJavascriptMode(
         fileFsPath,
         offset,
         {
-          includeExternalModuleExports: _.get(config, ['vetur', 'completion', 'autoImport']),
+          includeExternalModuleExports: _.get(config, ['wxa', 'completion', 'autoImport']),
           includeInsertTextCompletions: false
         }
       );
@@ -160,7 +160,7 @@ export function getJavascriptMode(
       if (details) {
         item.detail = ts.displayPartsToString(details.displayParts);
         item.documentation = ts.displayPartsToString(details.documentation);
-        if (details.codeActions && config.vetur.completion.autoImport) {
+        if (details.codeActions && config.wxa.completion.autoImport) {
           const textEdits = convertCodeAction(doc, details.codeActions, regionStart);
           item.additionalTextEdits = textEdits;
         }
@@ -350,16 +350,16 @@ export function getJavascriptMode(
 
       const defaultFormatter =
         scriptDoc.languageId === 'javascript'
-          ? config.vetur.format.defaultFormatter.js
-          : config.vetur.format.defaultFormatter.ts;
+          ? config.wxa.format.defaultFormatter.js
+          : config.wxa.format.defaultFormatter.ts;
 
       if (defaultFormatter === 'none') {
         return [];
       }
 
       const parser = scriptDoc.languageId === 'javascript' ? 'babylon' : 'typescript';
-      const needInitialIndent = config.vetur.format.scriptInitialIndent;
-      const vlsFormatConfig: VLSFormatConfig = config.vetur.format;
+      const needInitialIndent = config.wxa.format.scriptInitialIndent;
+      const vlsFormatConfig: VLSFormatConfig = config.wxa.format;
 
       if (defaultFormatter === 'prettier' || defaultFormatter === 'prettier-eslint') {
         const code = scriptDoc.getText();
@@ -419,7 +419,7 @@ export function getJavascriptMode(
 
 function getSourceDoc(fileName: string, program: ts.Program): TextDocument {
   const sourceFile = program.getSourceFile(fileName)!;
-  return TextDocument.create(fileName, 'vue', 0, sourceFile.getFullText());
+  return TextDocument.create(fileName, 'wxa', 0, sourceFile.getFullText());
 }
 
 function languageServiceIncludesFile(ls: ts.LanguageService, documentUri: string): boolean {

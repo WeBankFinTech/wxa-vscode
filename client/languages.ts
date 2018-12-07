@@ -20,7 +20,7 @@ const EMPTY_ELEMENTS: string[] = [
 ];
 
 export function registerLanguageConfigurations() {
-  languages.setLanguageConfiguration('vue-html', {
+  languages.setLanguageConfiguration('wxa-html', {
     wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\$\^\&\*\(\)\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\s]+)/g,
     onEnterRules: [
       {

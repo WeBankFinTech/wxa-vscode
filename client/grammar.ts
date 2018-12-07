@@ -28,19 +28,19 @@ const SCOPES: { [lang: string]: string } = {
 
 export function generateGrammarCommandHandler(extensionPath: string) {
   const customBlocks: { [k: string]: string } =
-    vscode.workspace.getConfiguration().get('vetur.grammar.customBlocks') || {};
+    vscode.workspace.getConfiguration().get('wxa.grammar.customBlocks') || {};
 
   return () => {
     try {
       const generatedGrammar = getGeneratedGrammar(
-        path.resolve(extensionPath, 'syntaxes/vue.json'),
+        path.resolve(extensionPath, 'syntaxes/wxa.gen.json'),
         customBlocks
       );
-      fs.writeFileSync(path.resolve(extensionPath, 'syntaxes/vue-generated.json'), generatedGrammar, 'utf-8');
+      fs.writeFileSync(path.resolve(extensionPath, 'syntaxes/wxa-generated.json'), generatedGrammar, 'utf-8');
       vscode.window.showInformationMessage('Successfully generated vue grammar. Reload VS Code to enable it.');
     } catch (e) {
       vscode.window.showErrorMessage(
-        'Failed to generate vue grammar. `vetur.grammar.customBlocks` contain invalid language values'
+        'Failed to generate vue grammar. `wxa.grammar.customBlocks` contain invalid language values'
       );
     }
   };
