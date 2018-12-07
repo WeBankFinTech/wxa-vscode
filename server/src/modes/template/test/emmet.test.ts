@@ -4,7 +4,7 @@ import { parseHTMLDocument } from '../parser/htmlParser';
 import { doComplete } from '../services/htmlCompletion';
 
 const setup: CompletionTestSetup = {
-  langId: 'vue-html',
+  langId: 'wxa-html',
   docUri: 'test://test/test.html',
   doComplete(doc, pos) {
     const htmlDoc = parseHTMLDocument(doc);

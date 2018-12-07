@@ -2,7 +2,7 @@
 
 `vue-language-server` is a language server implementation compatible with [`language-server-protocol`](https://github.com/Microsoft/language-server-protocol).
 
-Vetur is the VS Code client consuming `vue-language-server`.
+wxa is the VS Code client consuming `vue-language-server`.
 
 It's possible for other `language-server-protocol` compatible editors to build language server clients that consume VLS.
 
@@ -58,5 +58,5 @@ There are two ways to integrate `vue-language-server` into editors:
   Then, run vim command
 
   ```
-  :CocInstall coc-vetur
+  :CocInstall coc-wxa
   ```

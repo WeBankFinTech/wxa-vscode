@@ -15,13 +15,13 @@ export function initializeLanguageClient(serverModule: string): LanguageClient {
     debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
   };
 
-  const documentSelector = ['vue'];
+  const documentSelector = ['wxa'];
   const config = vscode.workspace.getConfiguration();
 
   const clientOptions: LanguageClientOptions = {
     documentSelector,
     synchronize: {
-      configurationSection: ['vetur', 'emmet', 'html', 'javascript', 'typescript', 'prettier', 'stylusSupremacy'],
+      configurationSection: ['wxa', 'emmet', 'html', 'javascript', 'typescript', 'prettier', 'stylusSupremacy'],
       fileEvents: vscode.workspace.createFileSystemWatcher('{**/*.js,**/*.ts}', true, false, true)
     },
     initializationOptions: {
@@ -30,5 +30,5 @@ export function initializeLanguageClient(serverModule: string): LanguageClient {
     revealOutputChannelOn: RevealOutputChannelOn.Never
   };
 
-  return new LanguageClient('vetur', 'Vue Language Server', serverOptions, clientOptions);
+  return new LanguageClient('wxa', 'Wxa Language Server', serverOptions, clientOptions);
 }

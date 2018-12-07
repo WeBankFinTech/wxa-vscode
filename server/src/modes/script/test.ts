@@ -15,14 +15,14 @@ const documentRegions = getLanguageModelCache(10, 60, document => getDocumentReg
 const scriptMode = getJavascriptMode(documentRegions, workspace);
 
 suite('integrated test', () => {
-  const filenames = glob.sync(workspace + '/**/*.vue');
+  const filenames = glob.sync(workspace + '/**/*.wxa');
   for (const filename of filenames) {
     const doc = createTextDocument(filename);
     const diagnostics = scriptMode.doValidation!(doc);
     test('validate: ' + path.basename(filename), () => {
       assert(diagnostics.length === 0);
     });
-    if (filename.endsWith('app.vue')) {
+    if (filename.endsWith('app.wxa')) {
       const components = scriptMode.findComponents(doc);
       test('props collection', testProps.bind(null, components));
     }
@@ -50,5 +50,5 @@ function testProps(components: ComponentInfo[]) {
 function createTextDocument(filename: string): TextDocument {
   const uri = Uri.file(filename).toString();
   const content = fs.readFileSync(filename, 'utf-8');
-  return TextDocument.create(uri, 'vue', 0, content);
+  return TextDocument.create(uri, 'wxa', 0, content);
 }

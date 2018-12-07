@@ -24,7 +24,7 @@ export function getStylusMode(documentRegions: LanguageModelCache<VueDocumentReg
   return {
     getId: () => 'stylus',
     configure(c) {
-      baseIndentShifted = _.get(c, 'vetur.format.styleInitialIndent', false);
+      baseIndentShifted = _.get(c, 'wxa.format.styleInitialIndent', false);
       config = c;
     },
     onDocumentRemoved() {},
@@ -65,7 +65,7 @@ export function getStylusMode(documentRegions: LanguageModelCache<VueDocumentReg
       return stylusHover(embedded, position);
     },
     format(document, range, formatParams) {
-      if (config.vetur.format.defaultFormatter.stylus === 'none') {
+      if (config.wxa.format.defaultFormatter.stylus === 'none') {
         return [];
       }
 
@@ -74,7 +74,7 @@ export function getStylusMode(documentRegions: LanguageModelCache<VueDocumentReg
       const embedded = embeddedDocuments.get(document);
       const inputText = embedded.getText();
 
-      const vlsFormatConfig = config.vetur.format as VLSFormatConfig;
+      const vlsFormatConfig = config.wxa.format as VLSFormatConfig;
       const tabStopChar = vlsFormatConfig.options.useTabs ? '\t' : ' '.repeat(vlsFormatConfig.options.tabSize);
 
       // Note that this would have been `document.eol` ideally
@@ -89,7 +89,7 @@ export function getStylusMode(documentRegions: LanguageModelCache<VueDocumentReg
         }
       }
 
-      // Add one more indentation when `vetur.format.styleInitialIndent` is set to `true`
+      // Add one more indentation when `wxa.format.styleInitialIndent` is set to `true`
       if (baseIndentShifted) {
         baseIndent += tabStopChar;
       }

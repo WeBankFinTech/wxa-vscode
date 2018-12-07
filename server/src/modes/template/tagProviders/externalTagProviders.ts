@@ -26,19 +26,19 @@ export const buefyTagProvider = getExternalTagProvider('buefy', buefyTags, buefy
 export const vuetifyTagProvider = getExternalTagProvider('vuetify', vuetifyTags, vuetifyAttributes);
 
 export function getRuntimeTagProvider(workspacePath: string, pkg: any): IHTMLTagProvider | null {
-  if (!pkg.vetur) {
+  if (!pkg.wxa) {
     return null;
   }
 
   const tagsPath = ts.findConfigFile(
     workspacePath,
     ts.sys.fileExists,
-    path.join('node_modules/', pkg.name, pkg.vetur.tags)
+    path.join('node_modules/', pkg.name, pkg.wxa.tags)
   );
   const attrsPath = ts.findConfigFile(
     workspacePath,
     ts.sys.fileExists,
-    path.join('node_modules/', pkg.name, pkg.vetur.attributes)
+    path.join('node_modules/', pkg.name, pkg.wxa.attributes)
   );
 
   try {

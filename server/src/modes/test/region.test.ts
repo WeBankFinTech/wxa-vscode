@@ -33,7 +33,7 @@ function genAttr(lang: string) {
 
 function getLangId(block: string, lang: string) {
   const mapping: { [block: string]: string } = {
-    template: 'vue-html',
+    template: 'wxa-html',
     script: 'javascript',
     style: 'css'
   };
@@ -217,7 +217,7 @@ suite('Embedded Support', () => {
 <style lang="scss"></style>
 <script>export default {}</script>
 `;
-    const doc = TextDocument.create('test://test/test.vue', 'vue', 0, content);
+    const doc = TextDocument.create('test://test/test.vue', 'wxa', 0, content);
     const ranges = getAllRegions(doc);
     assert.equal(ranges.length, 3);
     assert.equal(ranges[1].languageId, 'javascript');

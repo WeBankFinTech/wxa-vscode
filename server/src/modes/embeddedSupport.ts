@@ -28,7 +28,7 @@ interface EmbeddedRegion {
 }
 
 const defaultType: { [type: string]: string } = {
-  template: 'vue-html',
+  template: 'wxa-html',
   script: 'javascript',
   style: 'css'
 };
@@ -113,7 +113,7 @@ export function getDocumentRegions(document: TextDocument): VueDocumentRegions {
 }
 
 function scanTemplateRegion(scanner: Scanner, text: string): EmbeddedRegion | null {
-  let languageId = 'vue-html';
+  let languageId = 'wxa-html';
 
   let token: number;
   let start = 0;
@@ -125,7 +125,7 @@ function scanTemplateRegion(scanner: Scanner, text: string): EmbeddedRegion | nu
   let lastAttributeName = null;
   while (unClosedTemplate !== 0) {
     // skip parsing on non html syntax, just search terminator
-    if (languageId !== 'vue-html' && start !== 0) {
+    if (languageId !== 'wxa-html' && start !== 0) {
       token = scanner.scanForRegexp(/<\/template>/);
       if (token === TokenType.EOS) {
         return null;
@@ -217,7 +217,7 @@ function getLanguageRanges(document: TextDocument, regions: EmbeddedRegion[], ra
         result.push({
           start: currentPos,
           end: startPos,
-          languageId: 'vue'
+          languageId: 'wxa'
         });
       }
       const end = Math.min(region.end, endOffset);
@@ -238,14 +238,14 @@ function getLanguageRanges(document: TextDocument, regions: EmbeddedRegion[], ra
     result.push({
       start: currentPos,
       end: endPos,
-      languageId: 'vue'
+      languageId: 'wxa'
     });
   }
   return result;
 }
 
 function getLanguagesInDocument(document: TextDocument, regions: EmbeddedRegion[]): string[] {
-  const result = ['vue'];
+  const result = ['wxa'];
   for (const region of regions) {
     if (region.languageId && result.indexOf(region.languageId) === -1) {
       result.push(region.languageId);
@@ -265,7 +265,7 @@ function getLanguageAtPosition(document: TextDocument, regions: EmbeddedRegion[]
       break;
     }
   }
-  return 'vue';
+  return 'wxa';
 }
 
 function getEmbeddedDocument(document: TextDocument, contents: EmbeddedRegion[], languageId: string): TextDocument {

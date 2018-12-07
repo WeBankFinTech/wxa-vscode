@@ -21,10 +21,10 @@ import {
 
 import { getLanguageModelCache, LanguageModelCache } from './languageModelCache';
 import { getDocumentRegions, VueDocumentRegions } from './embeddedSupport';
-import { getVueMode } from './vue';
+import { getWxaMode } from './wxa';
 import { getCSSMode, getSCSSMode, getLESSMode, getPostCSSMode } from './style';
 import { getJavascriptMode } from './script/javascript';
-import { getVueHTMLMode } from './template';
+import { getWxaHTMLMode } from './template';
 import { getStylusMode } from './style/stylus';
 import { DocumentContext } from '../types';
 
@@ -73,8 +73,8 @@ export function getLanguageModes(workspacePath: string | null | undefined): Lang
 
   const jsMode = getJavascriptMode(documentRegions, workspacePath);
   let modes: { [k: string]: LanguageMode } = {
-    vue: getVueMode(),
-    'vue-html': getVueHTMLMode(documentRegions, workspacePath, jsMode),
+    wxa: getWxaMode(),
+    'wxa-html': getWxaHTMLMode(documentRegions, workspacePath, jsMode),
     css: getCSSMode(documentRegions),
     postcss: getPostCSSMode(documentRegions),
     scss: getSCSSMode(documentRegions),

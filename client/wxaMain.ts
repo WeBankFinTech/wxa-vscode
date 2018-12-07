@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { LanguageClient } from 'vscode-languageclient';
-import { generateGrammarCommandHandler } from './grammar';
+// import { generateGrammarCommandHandler } from './grammar';
 import { registerLanguageConfigurations } from './languages';
 import { initializeLanguageClient } from './client';
 
@@ -9,9 +9,9 @@ export function activate(context: vscode.ExtensionContext) {
   /**
    * Custom Block Grammar generation command
    */
-  context.subscriptions.push(
-    vscode.commands.registerCommand('vetur.generateGrammar', generateGrammarCommandHandler(context.extensionPath))
-  );
+  // context.subscriptions.push(
+  //   vscode.commands.registerCommand('wxa.generateGrammar', generateGrammarCommandHandler(context.extensionPath))
+  // );
 
   registerLanguageConfigurations();
 

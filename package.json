@@ -1,18 +1,17 @@
 {
-  "name": "vetur",
-  "displayName": "Vetur",
-  "description": "Vue tooling for VS Code",
-  "author": "Pine Wu <octref@gmail.com>",
-  "icon": "asset/vue.png",
-  "version": "0.14.3",
-  "publisher": "octref",
+  "name": "wxa",
+  "displayName": "wxa",
+  "description": "wxa tooling for VS Code",
+  "author": "Genuifx <genuifx@gmail.com>",
+  "icon": "asset/wxa-logo.png",
+  "version": "0.0.1",
+  "publisher": "genuifx",
   "scripts": {
     "compile": "tsc -p . && tsc -p server",
     "watch": "run-p watch-client watch-server",
     "watch-client": "tsc -w -p .",
     "watch-server": "tsc -w -p server",
     "precommit": "lint-staged",
-    "prepush": "npm run test:server",
     "lint": "tslint -p tslint.json",
     "test:server": "cd server && npm run compile && npm test",
     "test:e2e": "sh ./test/e2e.sh",
@@ -28,13 +27,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vuejs/vetur.git"
+    "url": "https://github.com/Genuifx/vetur.git"
   },
   "keywords": [
-    "vetur",
-    "Vue",
-    "vue",
-    "vuejs"
+    "wxa"
   ],
   "categories": [
     "Programming Languages"
@@ -48,39 +44,34 @@
     "vscode-languageserver-types": "^3.12.0"
   },
   "activationEvents": [
-    "onLanguage:vue"
+    "onLanguage:wxa"
   ],
-  "main": "./dist/client/vueMain",
+  "main": "./dist/client/wxaMain",
   "contributes": {
-    "commands": [
-      {
-        "command": "vetur.generateGrammar",
-        "title": "Vetur: Generate grammar from `vetur.grammar.customBlocks`"
-      }
-    ],
-    "breakpoints": [
-      {
-        "language": "vue"
-      }
-    ],
-    "languages": [
-      {
-        "id": "vue",
+    "commands": [{
+      "command": "wxa.generateGrammar",
+      "title": "wxa: Generate grammar from `wxa.grammar.customBlocks`"
+    }],
+    "breakpoints": [{
+      "language": "wxa"
+    }],
+    "languages": [{
+        "id": "wxa",
         "aliases": [
-          "Vue",
-          "vue"
+          "Wxa",
+          "wxa"
         ],
         "extensions": [
-          ".vue"
+          ".wxa"
         ],
-        "configuration": "./languages/vue-language-configuration.json"
+        "configuration": "./languages/wxa-language-configuration.json"
       },
       {
-        "id": "vue-html",
+        "id": "wxa-html",
         "aliases": [
-          "Vue-html"
+          "Wxa-html"
         ],
-        "configuration": "./languages/vue-html-language-configuration.json"
+        "configuration": "./languages/wxa-html-language-configuration.json"
       },
       {
         "id": "postcss",
@@ -91,14 +82,13 @@
         "configuration": "./languages/postcss-language-configuration.json"
       }
     ],
-    "grammars": [
-      {
-        "language": "vue",
-        "scopeName": "source.vue",
-        "path": "./syntaxes/vue-generated.json",
+    "grammars": [{
+        "language": "wxa",
+        "scopeName": "source.wxa",
+        "path": "./syntaxes/wxa.gen.json",
         "embeddedLanguages": {
           "text.html.basic": "html",
-          "text.html.vue-html": "vue-html",
+          "text.html.wxa-html": "wxa-html",
           "text.pug": "jade",
           "text.haml": "haml",
           "source.css": "css",
@@ -122,28 +112,28 @@
         "path": "./syntaxes/postcss.json"
       },
       {
-        "language": "vue-html",
-        "scopeName": "text.html.vue-html",
-        "path": "./syntaxes/vue-html.json",
+        "language": "wxa-html",
+        "scopeName": "text.html.wxa-html",
+        "path": "./syntaxes/wxa-html.gen.json",
         "embeddedLanguages": {
           "source.js": "javascript"
         }
       }
     ],
     "configuration": {
-      "title": "Vetur",
+      "title": "WXA",
       "properties": {
-        "vetur.completion.autoImport": {
+        "wxa.completion.autoImport": {
           "type": "boolean",
           "default": true,
           "description": "Include completion for module export and auto import them"
         },
-        "vetur.completion.useScaffoldSnippets": {
+        "wxa.completion.useScaffoldSnippets": {
           "type": "boolean",
           "default": true,
           "description": "Enable/disable Vetur's built-in scaffolding snippets"
         },
-        "vetur.grammar.customBlocks": {
+        "wxa.grammar.customBlocks": {
           "type": "object",
           "default": {
             "docs": "md",
@@ -151,32 +141,32 @@
           },
           "description": "Mapping from custom block tag name to language name. Used for generating grammar to support syntax highlighting for custom blocks."
         },
-        "vetur.validation.template": {
+        "wxa.validation.template": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Validate vue-html in <template> using eslint-plugin-vue"
         },
-        "vetur.validation.style": {
+        "wxa.validation.style": {
           "type": "boolean",
           "default": true,
           "description": "Validate css/scss/less/postcss in <style>"
         },
-        "vetur.validation.script": {
+        "wxa.validation.script": {
           "type": "boolean",
           "default": true,
           "description": "Validate js/ts in <script>"
         },
-        "vetur.format.options.tabSize": {
+        "wxa.format.options.tabSize": {
           "type": "number",
           "default": 2,
           "description": "Number of spaces per indentation level. Inherited by all formatters."
         },
-        "vetur.format.options.useTabs": {
+        "wxa.format.options.useTabs": {
           "type": "boolean",
           "default": false,
           "description": "Use tabs for indentation. Inherited by all formatters."
         },
-        "vetur.format.defaultFormatter.html": {
+        "wxa.format.defaultFormatter.html": {
           "type": "string",
           "default": "prettyhtml",
           "enum": [
@@ -191,7 +181,7 @@
           ],
           "description": "Default formatter for <template> region"
         },
-        "vetur.format.defaultFormatter.css": {
+        "wxa.format.defaultFormatter.css": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -204,7 +194,7 @@
           ],
           "description": "Default formatter for <style> region"
         },
-        "vetur.format.defaultFormatter.postcss": {
+        "wxa.format.defaultFormatter.postcss": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -217,7 +207,7 @@
           ],
           "description": "Default formatter for <style lang='postcss'> region"
         },
-        "vetur.format.defaultFormatter.scss": {
+        "wxa.format.defaultFormatter.scss": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -230,7 +220,7 @@
           ],
           "description": "Default formatter for <style lang='scss'> region"
         },
-        "vetur.format.defaultFormatter.less": {
+        "wxa.format.defaultFormatter.less": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -243,7 +233,7 @@
           ],
           "description": "Default formatter for <style lang='less'> region"
         },
-        "vetur.format.defaultFormatter.stylus": {
+        "wxa.format.defaultFormatter.stylus": {
           "type": "string",
           "default": "stylus-supremacy",
           "enum": [
@@ -256,7 +246,7 @@
           ],
           "description": "Default formatter for <style lang='stylus'> region"
         },
-        "vetur.format.defaultFormatter.js": {
+        "wxa.format.defaultFormatter.js": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -273,7 +263,7 @@
           ],
           "description": "Default formatter for <script> region"
         },
-        "vetur.format.defaultFormatter.ts": {
+        "wxa.format.defaultFormatter.ts": {
           "type": "string",
           "default": "prettier",
           "enum": [
@@ -288,7 +278,7 @@
           ],
           "description": "Default formatter for <script> region"
         },
-        "vetur.format.defaultFormatterOptions": {
+        "wxa.format.defaultFormatterOptions": {
           "type": "object",
           "properties": {
             "prettier": {
@@ -340,17 +330,17 @@
           },
           "description": "Options for all default formatters"
         },
-        "vetur.format.styleInitialIndent": {
+        "wxa.format.styleInitialIndent": {
           "type": "boolean",
           "default": false,
           "description": "Whether to have initial indent for <style> region"
         },
-        "vetur.format.scriptInitialIndent": {
+        "wxa.format.scriptInitialIndent": {
           "type": "boolean",
           "default": false,
           "description": "Whether to have initial indent for <script> region"
         },
-        "vetur.trace.server": {
+        "wxa.trace.server": {
           "type": "string",
           "enum": [
             "off",

@@ -1,18 +1,18 @@
 import { LanguageMode } from '../languageModes';
 import { doScaffoldComplete } from './scaffoldCompletion';
 
-export function getVueMode(): LanguageMode {
+export function getWxaMode(): LanguageMode {
   let config: any = {};
 
   return {
     getId() {
-      return 'vue';
+      return 'wxa';
     },
     configure(c) {
       config = c;
     },
     doComplete(document, position) {
-      if (!config.vetur.completion.useScaffoldSnippets) {
+      if (!config.wxa.completion.useScaffoldSnippets) {
         return { isIncomplete: false, items: [] };
       }
       const offset = document.offsetAt(position);

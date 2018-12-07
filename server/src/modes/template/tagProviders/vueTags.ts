@@ -113,7 +113,7 @@ const valueSets = {
 
 export function getVueTagProvider(): IHTMLTagProvider {
   return {
-    getId: () => 'vue',
+    getId: () => 'wxa',
     priority: Priority.Framework,
     collectTags: collector => collectTagsDefault(collector, vueTags),
     collectAttributes: (tag: string, collector: AttributeCollector) => {
