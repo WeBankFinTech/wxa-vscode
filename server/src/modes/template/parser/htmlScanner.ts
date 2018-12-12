@@ -29,6 +29,7 @@ export enum TokenType {
   Unknown,
   Script,
   Styles,
+  Config,
   EOS
 }
 
@@ -188,6 +189,7 @@ export enum ScannerState {
   WithinComment,
   WithinScriptContent,
   WithinStyleContent,
+  WithinConfigContent,
   AfterAttributeName,
   BeforeAttributeValue
 }
@@ -388,6 +390,8 @@ export function createScanner(
             }
           } else if (lastTag === 'style') {
             state = ScannerState.WithinStyleContent;
+          } else if (lastTag === 'config') {
+            state = ScannerState.WithinConfigContent;
           } else {
             state = ScannerState.WithinContent;
           }
@@ -475,6 +479,13 @@ export function createScanner(
         state = ScannerState.WithinContent;
         if (offset < stream.pos()) {
           return finishToken(offset, TokenType.Styles);
+        }
+        return internalScan(); // no advance yet - jump to content
+      case ScannerState.WithinConfigContent:
+        stream.advanceUntilRegExp(/<\/config/i);
+        state = ScannerState.WithinContent;
+        if (offset < stream.pos()) {
+          return finishToken(offset, TokenType.Config);
         }
         return internalScan(); // no advance yet - jump to content
     }

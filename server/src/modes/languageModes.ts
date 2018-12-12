@@ -22,6 +22,7 @@ import {
 import { getLanguageModelCache, LanguageModelCache } from './languageModelCache';
 import { getDocumentRegions, VueDocumentRegions } from './embeddedSupport';
 import { getWxaMode } from './wxa';
+import { getJsonMode } from './json';
 import { getCSSMode, getSCSSMode, getLESSMode, getPostCSSMode } from './style';
 import { getJavascriptMode } from './script/javascript';
 import { getWxaHTMLMode } from './template';
@@ -31,7 +32,7 @@ import { DocumentContext } from '../types';
 export interface LanguageMode {
   getId(): string;
   configure?(options: any): void;
-  doValidation?(document: TextDocument): Diagnostic[];
+  doValidation?(document: TextDocument): Promise<Diagnostic[]>;
   doComplete?(document: TextDocument, position: Position): CompletionList;
   doResolve?(document: TextDocument, item: CompletionItem): CompletionItem;
   doHover?(document: TextDocument, position: Position): Hover;
@@ -80,6 +81,7 @@ export function getLanguageModes(workspacePath: string | null | undefined): Lang
     scss: getSCSSMode(documentRegions),
     less: getLESSMode(documentRegions),
     stylus: getStylusMode(documentRegions),
+    json: getJsonMode(documentRegions),
     javascript: jsMode,
     tsx: jsMode,
     typescript: jsMode

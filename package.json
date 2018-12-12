@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "vscode": "^1.1.22",
+    "vscode-json-languageservice": "^3.2.1",
     "vscode-languageclient": "^5.0.1",
     "vscode-languageserver-types": "^3.12.0"
   },
@@ -48,14 +49,19 @@
   ],
   "main": "./dist/client/wxaMain",
   "contributes": {
-    "commands": [{
-      "command": "wxa.generateGrammar",
-      "title": "wxa: Generate grammar from `wxa.grammar.customBlocks`"
-    }],
-    "breakpoints": [{
-      "language": "wxa"
-    }],
-    "languages": [{
+    "commands": [
+      {
+        "command": "wxa.generateGrammar",
+        "title": "wxa: Generate grammar from `wxa.grammar.customBlocks`"
+      }
+    ],
+    "breakpoints": [
+      {
+        "language": "wxa"
+      }
+    ],
+    "languages": [
+      {
         "id": "wxa",
         "aliases": [
           "Wxa",
@@ -82,7 +88,8 @@
         "configuration": "./languages/postcss-language-configuration.json"
       }
     ],
-    "grammars": [{
+    "grammars": [
+      {
         "language": "wxa",
         "scopeName": "source.wxa",
         "path": "./syntaxes/wxa.gen.json",
@@ -155,6 +162,11 @@
           "type": "boolean",
           "default": true,
           "description": "Validate js/ts in <script>"
+        },
+        "wxa.validation.json": {
+          "type": "boolean",
+          "default": true,
+          "description": "Validate json in <config>"
         },
         "wxa.format.options.tabSize": {
           "type": "number",

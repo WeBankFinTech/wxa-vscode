@@ -14,11 +14,11 @@ const workspace = path.resolve(__dirname, '../../../test/fixtures/');
 const documentRegions = getLanguageModelCache(10, 60, document => getDocumentRegions(document));
 const scriptMode = getJavascriptMode(documentRegions, workspace);
 
-suite('integrated test', () => {
+suite('integrated test', async () => {
   const filenames = glob.sync(workspace + '/**/*.wxa');
-  for (const filename of filenames) {
+  for await (const filename of filenames) {
     const doc = createTextDocument(filename);
-    const diagnostics = scriptMode.doValidation!(doc);
+    const diagnostics = await scriptMode.doValidation!(doc);
     test('validate: ' + path.basename(filename), () => {
       assert(diagnostics.length === 0);
     });

@@ -56,12 +56,12 @@ function getStyleMode(
       languageService.configure(c && c.css);
       config = c;
     },
-    doValidation(document) {
+    async doValidation(document) {
       if (languageId === 'postcss') {
-        return [];
+        return await [];
       } else {
         const embedded = embeddedDocuments.get(document);
-        return languageService.doValidation(embedded, stylesheets.get(embedded));
+        return await languageService.doValidation(embedded, stylesheets.get(embedded));
       }
     },
     doComplete(document, position) {

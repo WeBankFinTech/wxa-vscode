@@ -4,7 +4,7 @@ import * as path from 'path';
 import { getDocumentRegions } from '../embeddedSupport';
 import { TextDocument } from 'vscode-languageserver-types';
 
-export function isVue(filename: string): boolean {
+export function isWxa(filename: string): boolean {
   return path.extname(filename) === '.wxa';
 }
 
@@ -35,7 +35,7 @@ export function createUpdater() {
     ): ts.SourceFile {
       const sourceFile = clssf(fileName, scriptSnapshot, scriptTarget, version, setNodeParents, scriptKind);
       scriptKindTracker.set(sourceFile, scriptKind);
-      if (isVue(fileName) && !isTSLike(scriptKind)) {
+      if (isWxa(fileName) && !isTSLike(scriptKind)) {
         modifyVueSource(sourceFile);
       }
       return sourceFile;
@@ -49,7 +49,7 @@ export function createUpdater() {
     ): ts.SourceFile {
       const scriptKind = scriptKindTracker.get(sourceFile);
       sourceFile = ulssf(sourceFile, scriptSnapshot, version, textChangeRange, aggressiveChecks);
-      if (isVue(sourceFile.fileName) && !isTSLike(scriptKind)) {
+      if (isWxa(sourceFile.fileName) && !isTSLike(scriptKind)) {
         modifyVueSource(sourceFile);
       }
       return sourceFile;

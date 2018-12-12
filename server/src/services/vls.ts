@@ -117,12 +117,14 @@ export class VLS {
 
   configure(config: any): void {
     const wxaValidationOptions = config.wxa.validation;
+    console.log(JSON.stringify(wxaValidationOptions));
     this.validation['wxa-html'] = wxaValidationOptions.template;
     this.validation.css = wxaValidationOptions.style;
     this.validation.postcss = wxaValidationOptions.style;
     this.validation.scss = wxaValidationOptions.style;
     this.validation.less = wxaValidationOptions.style;
     this.validation.javascript = wxaValidationOptions.script;
+    this.validation.json = wxaValidationOptions.json;
 
     this.languageModes.getAllModes().forEach(m => {
       if (m.configure) {
@@ -327,21 +329,31 @@ export class VLS {
     }
   }
 
-  validateTextDocument(textDocument: TextDocument): void {
-    const diagnostics: Diagnostic[] = this.doValidate(textDocument);
+  async validateTextDocument(textDocument: TextDocument): Promise<void> {
+    const diagnostics: Diagnostic[] = await this.doValidate(textDocument);
+    // console.log(JSON.stringify(diagnostics))
     this.lspConnection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
   }
 
-  doValidate(doc: TextDocument): Diagnostic[] {
+  async doValidate(doc: TextDocument): Promise<Diagnostic[]> {
     const diagnostics: Diagnostic[] = [];
+    const validationTask: Array<Promise<Diagnostic[]>> = [];
     if (doc.languageId === 'wxa') {
-      this.languageModes.getAllModesInDocument(doc).forEach(mode => {
+      const docs = this.languageModes.getAllModesInDocument(doc);
+      for (const mode of docs) {
         if (mode.doValidation && this.validation[mode.getId()]) {
-          pushAll(diagnostics, mode.doValidation(doc));
+          validationTask.push(mode.doValidation(doc));
         }
-      });
+      }
     }
-    return diagnostics;
+    try {
+      const diagnostic = await Promise.all(validationTask);
+      diagnostic.forEach((diag)=>pushAll(diagnostics, diag));
+      return diagnostics;
+    } catch(e) {
+      console.error(e);
+      return [];
+    }
   }
 
   removeDocument(doc: TextDocument): void {

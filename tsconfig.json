@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "strict": true,
     "noUnusedLocals": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules",

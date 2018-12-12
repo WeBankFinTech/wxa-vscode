@@ -75,10 +75,10 @@ export function getJavascriptMode(
     configure(c) {
       config = c;
     },
-    doValidation(doc: TextDocument): Diagnostic[] {
+    doValidation(doc: TextDocument): Promise<Diagnostic[]> {
       const { scriptDoc, service } = updateCurrentTextDocument(doc);
       if (!languageServiceIncludesFile(service, doc.uri)) {
-        return [];
+        return Promise.resolve([]);
       }
 
       const fileFsPath = getFileFsPath(doc.uri);
@@ -87,7 +87,7 @@ export function getJavascriptMode(
         ...service.getSemanticDiagnostics(fileFsPath)
       ];
 
-      return diagnostics.map(diag => {
+      return Promise.resolve(diagnostics.map(diag => {
         // syntactic/semantic diagnostic always has start and length
         // so we can safely cast diag to TextSpan
         return {
@@ -95,7 +95,7 @@ export function getJavascriptMode(
           severity: DiagnosticSeverity.Error,
           message: ts.flattenDiagnosticMessageText(diag.messageText, '\n')
         };
-      });
+      }));
     },
     doComplete(doc: TextDocument, position: Position): CompletionList {
       const { scriptDoc, service } = updateCurrentTextDocument(doc);
@@ -117,6 +117,7 @@ export function getJavascriptMode(
           includeInsertTextCompletions: false
         }
       );
+      
       if (!completions) {
         return { isIncomplete: false, items: [] };
       }

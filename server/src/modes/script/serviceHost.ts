@@ -5,7 +5,7 @@ import { TextDocument } from 'vscode-languageserver-types';
 import * as parseGitIgnore from 'parse-gitignore';
 
 import { LanguageModelCache } from '../languageModelCache';
-import { createUpdater, parseVue, isVue } from './preprocess';
+import { createUpdater, parseVue, isWxa } from './preprocess';
 import { getFileFsPath, getFilePath } from '../../utils/paths';
 import * as bridge from './bridge';
 
@@ -52,7 +52,8 @@ const defaultCompilerOptions: ts.CompilerOptions = {
   moduleResolution: ts.ModuleResolutionKind.NodeJs,
   module: ts.ModuleKind.CommonJS,
   jsx: ts.JsxEmit.Preserve,
-  allowSyntheticDefaultImports: true
+  allowSyntheticDefaultImports: true,
+  experimentalDecorators: true
 };
 
 export function getServiceHost(workspacePath: string, jsDocuments: LanguageModelCache<TextDocument>) {
@@ -74,7 +75,7 @@ export function getServiceHost(workspacePath: string, jsDocuments: LanguageModel
     const filePath = getFilePath(doc.uri);
     // When file is not in language service, add it
     if (!scriptDocs.has(fileFsPath)) {
-      if (fileFsPath.endsWith('.vue')) {
+      if (fileFsPath.endsWith('.wxa')) {
         files.push(filePath);
       }
     }
@@ -117,7 +118,7 @@ export function getServiceHost(workspacePath: string, jsDocuments: LanguageModel
       return version ? version.toString() : '0';
     },
     getScriptKind(fileName) {
-      if (isVue(fileName)) {
+      if (isWxa(fileName)) {
         const uri = Uri.file(fileName);
         fileName = uri.fsPath;
         const doc =
@@ -150,7 +151,7 @@ export function getServiceHost(workspacePath: string, jsDocuments: LanguageModel
             extension: ts.Extension.Ts
           };
         }
-        if (path.isAbsolute(name) || !isVue(name)) {
+        if (path.isAbsolute(name) || !isWxa(name)) {
           return ts.resolveModuleName(name, containingFile, compilerOptions, ts.sys).resolvedModule;
         }
         const resolved = ts.resolveModuleName(name, containingFile, compilerOptions, vueSys).resolvedModule;
@@ -184,7 +185,7 @@ export function getServiceHost(workspacePath: string, jsDocuments: LanguageModel
       const normalizedFileFsPath = getNormalizedFileFsPath(fileName);
       const doc = scriptDocs.get(normalizedFileFsPath);
       let fileText = doc ? doc.getText() : ts.sys.readFile(normalizedFileFsPath) || '';
-      if (!doc && isVue(fileName)) {
+      if (!doc && isWxa(fileName)) {
         // Note: This is required in addition to the parsing in embeddedSupport because
         // this works for .vue files that aren't even loaded by VS Code yet.
         fileText = parseVue(fileText);

@@ -45,9 +45,9 @@ export function getWxaHTMLMode(
       enabledTagProviders = getEnabledTagProviders(tagProviderSettings);
       config = c;
     },
-    doValidation(document) {
+    async doValidation(document) {
       const embedded = embeddedDocuments.get(document);
-      return doValidation(embedded, lintEngine);
+      return await doValidation(embedded, lintEngine);
     },
     doComplete(document: TextDocument, position: Position) {
       const embedded = embeddedDocuments.get(document);

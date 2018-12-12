@@ -18,7 +18,7 @@ export interface VueDocumentRegions {
   getImportedScripts(): string[];
 }
 
-type EmbeddedType = 'template' | 'script' | 'style' | 'custom';
+type EmbeddedType = 'template' | 'script' | 'style' | 'json' | 'custom';
 
 interface EmbeddedRegion {
   languageId: string;
@@ -65,6 +65,15 @@ export function getDocumentRegions(document: TextDocument): VueDocumentRegions {
         });
         languageIdFromType = '';
         break;
+      case TokenType.Config:
+        regions.push({
+          languageId: 'json',
+          start: scanner.getTokenOffset(),
+          end: scanner.getTokenEnd(),
+          type: 'json'
+        });
+        languageIdFromType = '';
+        break;
       case TokenType.StartTag:
         const tagName = scanner.getTokenText();
         if (tagName === 'template') {
@@ -72,7 +81,7 @@ export function getDocumentRegions(document: TextDocument): VueDocumentRegions {
           if (templateRegion) {
             regions.push(templateRegion);
           }
-        }
+        } 
         lastTagName = tagName;
         lastAttributeName = '';
         break;
@@ -251,6 +260,7 @@ function getLanguagesInDocument(document: TextDocument, regions: EmbeddedRegion[
       result.push(region.languageId);
     }
   }
+  console.log(JSON.stringify(result));
   return result;
 }
 
