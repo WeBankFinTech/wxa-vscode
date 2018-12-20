@@ -17,6 +17,8 @@
   </a> -->
 </p>
 
+This project is fork from [vetur](https://github.com/vuejs/vetur), and modify for compating wxa.
+
 Wxa tooling for VS Code, powered by [wxa-language-server](https://github.com/wxajs/wxa-vscode/tree/master/server).
 
 Doc: https://wxajs.github.io/wxa-vscode
