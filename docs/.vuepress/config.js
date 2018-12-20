@@ -1,12 +1,12 @@
 module.exports = {
     title: 'Vetur',
     description: "Vue tooling for VS Code.",
-    base: '/vetur/',
+    base: '/wxa-vscode/',
     markdown: {
       linkify: true
     },
     themeConfig: {
-      repo: 'vuejs/vetur',
+      repo: 'wxajs/wxa-vscode',
       editLinks: true,
       docsDir: 'docs',
       sidebar: [

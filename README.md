@@ -1,29 +1,26 @@
 <p>
-  <h1 align="center">Vetur</h1>
+  <h1 align="center">Wxa</h1>
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">
-    <img src="https://vsmarketplacebadge.apphb.com/version-short/octref.vetur.svg?style=flat-square">
+  <a href="https://marketplace.visualstudio.com/items?itemName=genuifx.wxa">
+    <img src="https://vsmarketplacebadge.apphb.com/version-short/genuifx.wxa.svg?style=flat-square">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">
-    <img src="https://vsmarketplacebadge.apphb.com/installs-short/octref.vetur.svg?style=flat-square">
+  <a href="https://marketplace.visualstudio.com/items?itemName=genuifx.wxa">
+    <img src="https://vsmarketplacebadge.apphb.com/installs-short/genuifx.wxa.svg?style=flat-square">
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur">
-    <img src="https://vsmarketplacebadge.apphb.com/rating-short/octref.vetur.svg?style=flat-square">
+  <a href="https://marketplace.visualstudio.com/items?itemName=genuifx.wxa">
+    <img src="https://vsmarketplacebadge.apphb.com/rating-short/genuifx.wxa.svg?style=flat-square">
   </a>
-  <a href="https://travis-ci.org/vuejs/vetur">
+  <!-- <a href="https://travis-ci.org/vuejs/vetur">
     <img src="https://img.shields.io/travis-ci/vuejs/vetur.svg?style=flat-square">
-  </a>
+  </a> -->
 </p>
 
-Vue tooling for VS Code, powered by [vue-language-server](https://github.com/vuejs/vetur/tree/master/server).
+Wxa tooling for VS Code, powered by [wxa-language-server](https://github.com/wxajs/wxa-vscode/tree/master/server).
 
-Doc: https://vuejs.github.io/vetur
+Doc: https://wxajs.github.io/wxa-vscode
 
-Try it out with [Veturpack](https://github.com/octref/veturpack)!  
-
-🎉 VueConf 2017 [Slide](https://www.dropbox.com/sh/eb4w8k3orh0j391/AAB3HaJexbGLa2tCP14BI8oJa?dl=0) & [Video](https://www.youtube.com/watch?v=05tNXJ-Kric) 🎉
 
 ## Features
 
@@ -37,23 +34,10 @@ Try it out with [Veturpack](https://github.com/octref/veturpack)!
 
 ## Quick Start
 
-- Install [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur).
-- Try it with [Veturpack](https://github.com/octref/veturpack), a pre-configured Vue boilerplate based on [Vuepack](https://github.com/egoist/vuepack).
-- Refer to [setup](https://vuejs.github.io/vetur/setup.html) page for setting up.
+- Install [Vetur](https://marketplace.visualstudio.com/items?itemName=genuifx.wxa).
+- Refer to [setup](https://wxajs.github.io/wxa-vscode/setup.html) page for setting up.
 - Refer to each feature's own page for setting up specific features.
-
-## FAQ
-
-[FAQ](https://github.com/vuejs/vetur/blob/master/docs/FAQ.md)
-
-## Roadmap
-
-See [#873](https://github.com/vuejs/vetur/issues/873).
-
-## Contribution
-
-See [CONTRIBUTING.md](https://github.com/vuejs/vetur/blob/master/.github/CONTRIBUTING.md)
 
 ## License
 
-MIT © [Pine Wu](https://github.com/octref) 
+MIT © wxajs

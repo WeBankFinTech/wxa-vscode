@@ -3,14 +3,14 @@ cd docs
 rm -rf .vuepress/dist
 
 # Build
-vuepress build
+npx vuepress build
 
 # Publish to GitHub Pages
 cd .vuepress/dist
 git init
 git add -A
 git commit -m '[vuepress] update docs'
-git push -f git@github.com:Genuifx/vetur.git master:gh-pages
+git push -f git@github.com:wxajs/wxa-vscode.git master:gh-pages
 
 # Cleanup
 cd ../..
