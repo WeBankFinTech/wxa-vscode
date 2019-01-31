@@ -4,7 +4,7 @@
   "description": "wxa tooling for VS Code",
   "author": "Genuifx <genuifx@gmail.com>",
   "icon": "asset/wxa-logo.png",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "genuifx",
   "scripts": {
     "compile": "tsc -p . && tsc -p server",
