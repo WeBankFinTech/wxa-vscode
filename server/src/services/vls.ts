@@ -117,7 +117,7 @@ export class VLS {
 
   configure(config: any): void {
     const wxaValidationOptions = config.wxa.validation;
-    console.log(JSON.stringify(wxaValidationOptions));
+    // console.log(JSON.stringify(wxaValidationOptions));
     this.validation['wxa-html'] = wxaValidationOptions.template;
     this.validation.css = wxaValidationOptions.style;
     this.validation.postcss = wxaValidationOptions.style;

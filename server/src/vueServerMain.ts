@@ -28,7 +28,7 @@ connection.onInitialize((params: InitializeParams): InitializeResult => {
     };
   }
 
-  console.log('Wxa initialized');
+  // console.log('Wxa initialized');
 
   const vls = new VLS(workspacePath, connection);
 

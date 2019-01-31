@@ -7,6 +7,7 @@
     }
   ],
   "configurations": [
+
     {
       "name": "client",
       "type": "extensionHost",
@@ -27,7 +28,7 @@
       "name": "server",
       "type": "node",
       "request": "attach",
-      "port": 6005,
+      "port": 6006,
       "sourceMaps": true,
       "outFiles": ["${workspaceRoot}/server/dist/**/*.js"],
       "protocol": "inspector",

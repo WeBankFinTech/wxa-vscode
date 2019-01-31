@@ -350,44 +350,10 @@
       },
       "patterns": [
         {
-          "name": "source.directive.wxa",
-          "begin": "\"",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.begin.html"
-            }
-          },
-          "end": "\"",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.end.html"
-            }
-          },
-          "patterns": [
-            {
-              "include": "source.js#expression"
-            }
-          ]
+          "include": "#string-double-quoted"
         },
         {
-          "name": "source.directive.wxa",
-          "begin": "'",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.begin.html"
-            }
-          },
-          "end": "'",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.end.html"
-            }
-          },
-          "patterns": [
-            {
-              "include": "source.js#expression"
-            }
-          ]
+          "include": "#string-single-quoted"
         }
       ]
     },
@@ -539,9 +505,6 @@
     },
     "tag-stuff": {
       "patterns": [
-        {
-          "include": "#wxa-directives"
-        },
         {
           "include": "#tag-id-attribute"
         },

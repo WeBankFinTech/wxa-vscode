@@ -260,7 +260,7 @@ function getLanguagesInDocument(document: TextDocument, regions: EmbeddedRegion[
       result.push(region.languageId);
     }
   }
-  console.log(JSON.stringify(result));
+  // console.log(JSON.stringify(result));
   return result;
 }
 

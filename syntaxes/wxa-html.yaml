@@ -176,25 +176,9 @@ repository:
     captures:
       '1': {name: entity.other.attribute-name.html}
       '7': {name: punctuation.separator.key-value.html}
-    patterns:
-    - name: source.directive.wxa
-      begin: '"'
-      beginCaptures:
-        '0': {name: punctuation.definition.string.begin.html}
-      end: '"'
-      endCaptures:
-        '0': {name: punctuation.definition.string.end.html}
-      patterns:
-      - include: source.js#expression
-    - name: source.directive.wxa
-      begin: ''''
-      beginCaptures:
-        '0': {name: punctuation.definition.string.begin.html}
-      end: ''''
-      endCaptures:
-        '0': {name: punctuation.definition.string.end.html}
-      patterns:
-      - include: source.js#expression
+    patterns: 
+    - include: '#string-double-quoted'
+    - include: '#string-single-quoted'
 
   entities:
     patterns:
@@ -275,7 +259,7 @@ repository:
 
   tag-stuff:
     patterns:
-    - include: '#wxa-directives'
+    # - include: '#wxa-directives'
     - include: '#tag-id-attribute'
     - include: '#tag-generic-attribute'
     - include: '#string-double-quoted'

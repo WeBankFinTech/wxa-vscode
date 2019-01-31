@@ -29,11 +29,13 @@ function _getJsonMode(
       return 'json';
     },
     async doValidation(doc: TextDocument) {
-      console.log('json start validation');
+      // console.log('json start validation');
       const embedded = embeddedDocuments.get(doc);
       let diaglog: Diagnostic[] = [];
       try {
         diaglog = await languageService.doValidation(embedded, json.get(embedded), {trailingCommas: 'error'});
+        // console.log(embedded, json.get(embedded));
+        // console.log('diaglog', diaglog);
       } catch(e) {
         console.error(e);
       }
