@@ -4,7 +4,7 @@
   "description": "微信小程序开发助手。开箱即用，安装完毕你将获得: 代码自动填充、格式化; 语法高亮、检查（包括wxml、wxs文件）;代码片段提示; 单文件组件支持",
   "author": "Genuifx <genuifx@gmail.com>",
   "icon": "asset/wxa-logo.png",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "genuifx",
   "scripts": {
     "compile": "tsc -p . && tsc -p server",
