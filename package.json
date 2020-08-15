@@ -85,6 +85,12 @@
           "POSTCSS"
         ],
         "configuration": "./languages/postcss-language-configuration.json"
+      },
+      {
+        "id": "wxs",
+        "aliases": [
+          "WXS"
+        ]
       }
     ],
     "grammars": [
@@ -105,6 +111,7 @@
           "source.stylus": "stylus",
           "source.js": "javascript",
           "source.ts": "typescript",
+          "source.wxs": "wxs",
           "source.coffee": "coffeescript",
           "text.html.markdown": "md",
           "source.yaml": "yaml",
@@ -121,6 +128,14 @@
         "language": "wxa-html",
         "scopeName": "text.html.wxa-html",
         "path": "./syntaxes/wxa-html.gen.json",
+        "embeddedLanguages": {
+          "source.js": "javascript"
+        }
+      },
+      {
+        "language": "wxs",
+        "scopeName": "source.wxs",
+        "path": "./syntaxes/wxs.json",
         "embeddedLanguages": {
           "source.js": "javascript"
         }
@@ -362,7 +377,13 @@
           "description": "Traces the communication between VS Code and Vue Language Server."
         }
       }
-    }
+    },
+    "snippets": [
+      {
+        "language": "wxa-html",
+        "path": "./snippets/snippets.gen.json"
+      }
+    ]
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
@@ -371,6 +392,8 @@
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.11.0",
     "@types/resolve": "^0.0.8",
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
     "husky": "^1.0.0-rc.15",
     "lint-staged": "^7.3.0",
     "mocha": "^5.2.0",

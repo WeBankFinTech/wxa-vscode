@@ -1,0 +1,4397 @@
+{
+    "wx:for": {
+        "prefix": "wx:for",
+        "body": [
+            "wx:for=\"{{$1}}\" wx:key=\"*this$2\" wx:for-item=\"item\" "
+        ],
+        "description": "在组件上使用 wx:for 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。\n默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item"
+    },
+    "wx:if": {
+        "prefix": "wx:if",
+        "body": [
+            "wx:if=\"{{$1}}\" "
+        ]
+    },
+    "wx:elif": {
+        "prefix": "wx:elif",
+        "body": [
+            "wx:elif=\"{{$1}}\" "
+        ]
+    },
+    "wx:else": {
+        "prefix": "wx:else",
+        "body": [
+            "wx:else"
+        ]
+    },
+    "block": {
+        "prefix": "block",
+        "body": [
+            "<block $1>$2</block>"
+        ]
+    },
+    "component cover-image": {
+        "prefix": "cover-image",
+        "body": [
+            "<cover-image class=\"$1\">$2</cover-image>",
+            "$3"
+        ],
+        "description": "覆盖在原生组件之上的图片视图\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/cover-image.html"
+    },
+    "component cover-view": {
+        "prefix": "cover-view",
+        "body": [
+            "<cover-view class=\"$1\">$2</cover-view>",
+            "$3"
+        ],
+        "description": "覆盖在原生组件之上的文本视图\ntip: cover-view和cover-image的aria-role仅可设置为button，读屏模式下才可以点击，并朗读出“按钮”；为空时可以聚焦，但不可点击\ntip: 基础库 2.2.4 起支持 touch 相关事件，也可使用 hover-class 设置点击态\ntip: 基础库 2.1.0 起支持设置 scale rotate 的 css 样式，包括 transition 动画\ntip: 基础库 1.9.90 起 cover-view 支持 overflow: scroll，但不支持动态更新 overflow\ntip: 基础库 1.9.90 起最外层 cover-view 支持 position: fixed\ntip: 基础库 1.9.0 起支持插在 view 等标签下。在此之前只可嵌套在原生组件map、video、canvas、camera内，避免嵌套在其他组件内。\ntip: 基础库 1.6.0 起支持css transition动画，transition-property只支持transform (translateX, translateY)与opacity。\ntip: 基础库 1.6.0 起支持css opacity。\ntip: 事件模型遵循冒泡模型，但不会冒泡到原生组件。\ntip: 文本建议都套上cover-view标签，避免排版错误。\ntip: 只支持基本的定位、布局、文本样式。不支持设置单边的border、background-image、shadow、overflow: visible等。\ntip: 建议子节点不要溢出父节点\ntip: 支持使用 z-index 控制层级\ntip: 默认设置的样式有：white-space: nowrap; line-height: 1.2; display: block;\nbug: 自定义组件嵌套 cover-view 时，自定义组件的 slot 及其父节点暂不支持通过 wx:if 控制显隐，否则会导致 cover-view 不显示\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html"
+    },
+    "component match-media": {
+        "prefix": "match-media",
+        "body": [
+            "<match-media class=\"$1\">$2</match-media>",
+            "$3"
+        ],
+        "description": "media query 匹配检测节点\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/match-media.html"
+    },
+    "component movable-area": {
+        "prefix": "movable-area",
+        "body": [
+            "<movable-area class=\"$1\">$2</movable-area>",
+            "$3"
+        ],
+        "description": "movable-view的可移动区域\ntip: movable-area 必须设置width和height属性，不设置默认为10px**\ntip: 当movable-view小于movable-area时，movable-view的移动范围是在movable-area内；\ntip: 当movable-view大于movable-area时，movable-view的移动范围必须包含movable-area（x轴方向和y轴方向分开考虑）\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/movable-area.html"
+    },
+    "component movable-view": {
+        "prefix": "movable-view",
+        "body": [
+            "<movable-view class=\"$1\">$2</movable-view>",
+            "$3"
+        ],
+        "description": "可移动的视图容器，在页面中可以拖拽滑动\ntip: movable-view 必须设置width和height属性，不设置默认为10px\ntip: movable-view 默认为绝对定位，top和left属性为0px\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/movable-view.html"
+    },
+    "component scroll-view": {
+        "prefix": "scroll-view",
+        "body": [
+            "<scroll-view class=\"$1\">$2</scroll-view>",
+            "$3"
+        ],
+        "description": "可滚动视图区域\ntip: 基础库 2.4.0以下不支持嵌套textarea、map、canvas、video 组件\ntip: scroll-into-view 的优先级高于 scroll-top\ntip: 在滚动 scroll-view 时会阻止页面回弹，所以在 scroll-view 中滚动，是无法触发 onPullDownRefresh\ntip: 若要使用下拉刷新，请使用页面的滚动，而不是 scroll-view ，这样也能通过点击顶部状态栏回到页面顶部\ntip: scroll-view 自定义下拉刷新可以结合 WXS 事件响应 开发交互动画\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html"
+    },
+    "component swiper": {
+        "prefix": "swiper",
+        "body": [
+            "<swiper class=\"$1\">$2</swiper>",
+            "$3"
+        ],
+        "description": "滑块视图容器\ntip: 如果在 bindchange 的事件回调函数中使用 setData 改变 current 值，则有可能导致 setData 被不停地调用，因而通常情况下请在改变 current 值前检测 source 字段来判断是否是由于用户触摸引起。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html"
+    },
+    "component swiper-item": {
+        "prefix": "swiper-item",
+        "body": [
+            "<swiper-item class=\"$1\">$2</swiper-item>",
+            "$3"
+        ],
+        "description": "仅可放置在swiper组件中，宽高自动设置为100%\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/swiper-item.html"
+    },
+    "component view": {
+        "prefix": "view",
+        "body": [
+            "<view class=\"$1\">$2</view>",
+            "$3"
+        ],
+        "description": "视图容器\ntip: 如果需要使用滚动视图，请使用 scroll-view\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/view.html"
+    },
+    "component icon": {
+        "prefix": "icon",
+        "body": [
+            "<icon class=\"$1\">$2</icon>",
+            "$3"
+        ],
+        "description": "图标\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/icon.html"
+    },
+    "component progress": {
+        "prefix": "progress",
+        "body": [
+            "<progress class=\"$1\">$2</progress>",
+            "$3"
+        ],
+        "description": "进度条\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/progress.html"
+    },
+    "component rich-text": {
+        "prefix": "rich-text",
+        "body": [
+            "<rich-text class=\"$1\">$2</rich-text>",
+            "$3"
+        ],
+        "description": "富文本\ntip: nodes 不推荐使用 String 类型，性能会有所下降。\ntip: rich-text 组件内屏蔽所有节点的事件。\ntip: attrs 属性不支持 id ，支持 class 。\ntip: name 属性大小写不敏感。\ntip: 如果使用了不受信任的HTML节点，该节点及其所有子节点将会被移除。\ntip: img 标签仅支持网络图片。\ntip: 如果在自定义组件中使用 rich-text 组件，那么仅自定义组件的 wxss 样式对 rich-text 中的 class 生效。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/rich-text.html"
+    },
+    "component text": {
+        "prefix": "text",
+        "body": [
+            "<text class=\"$1\">$2</text>",
+            "$3"
+        ],
+        "description": "文本\ntip: decode可以解析的有 &nbsp; &lt; &gt; &amp; &apos; &ensp; &emsp;\ntip: 各个操作系统的空格标准并不一致。\ntip:text 组件内只支持 text 嵌套。\ntip: 除了文本节点以外的其他节点都无法长按选中。\nbug: 基础库版本低于 2.1.0 时， text 组件内嵌的 text style 设置可能不会生效。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/text.html"
+    },
+    "component button": {
+        "prefix": "button",
+        "body": [
+            "<button >$1</button>",
+            "$2"
+        ],
+        "description": "按钮\ntip: button-hover 默认为{background-color: rgba(0, 0, 0, 0.1); opacity: 0.7;}\ntip: bindgetphonenumber 从1.2.0 开始支持，但是在1.5.3以下版本中无法使用wx.canIUse进行检测，建议使用基础库版本进行判断。\ntip: 在bindgetphonenumber 等返回加密信息的回调中调用 wx.login 登录，可能会刷新登录态。此时服务器使用 code 换取的 sessionKey 不是加密时使用的 sessionKey，导致解密失败。建议开发者提前进行 login；或者在回调中先使用 checkSession 进行登录态检查，避免 login 刷新登录态。\ntip: 从 2.1.0 起，button 可作为原生组件的子节点嵌入，以便在原生组件上使用 open-type 的能力。\ntip: 目前设置了 form-type 的 button 只会对当前组件中的 form 有效。因而，将 button 封装在自定义组件中，而 form 在自定义组件外，将会使这个 button 的 form-type 失效。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/button.html"
+    },
+    "component checkbox": {
+        "prefix": "checkbox",
+        "body": [
+            "<checkbox >$1</checkbox>",
+            "$2"
+        ],
+        "description": "多选项目\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/checkbox.html"
+    },
+    "component checkbox-group": {
+        "prefix": "checkbox-group",
+        "body": [
+            "<checkbox-group >$1</checkbox-group>",
+            "$2"
+        ],
+        "description": "多项选择器，内部由多个checkbox组成\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/checkbox-group.html"
+    },
+    "component editor": {
+        "prefix": "editor",
+        "body": [
+            "<editor >$1</editor>",
+            "$2"
+        ],
+        "description": "富文本编辑器，可以对图片、文字进行编辑\ntip: 使用 catchtouchend 绑定事件则不会使编辑器失去焦点(2.8.3)\ntip: 插入的 html 中事件绑定会被移除\ntip: formats 中的  color 属性会统一以 hex 格式返回\ntip: 粘贴时仅纯文本内容会被拷贝进编辑器\ntip: 插入 html 到编辑器内时，编辑器会删除一些不必要的标签，以保证内容的统一。例如<p><span>xxx</span></p>会改写为<p>xxx</p>\ntip: 编辑器聚焦时页面会被上推，系统行为以保证编辑区可见\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/editor.html"
+    },
+    "component form": {
+        "prefix": "form",
+        "body": [
+            "<form >$1</form>",
+            "$2"
+        ],
+        "description": "表单\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/form.html"
+    },
+    "component input": {
+        "prefix": "input",
+        "body": [
+            "<input >$1</input>",
+            "$2"
+        ],
+        "description": "输入框\ntip: confirm-type的最终表现与手机输入法本身的实现有关，部分安卓系统输入法和第三方输入法可能不支持或不完全支持\ntip : input 组件是一个原生组件，字体是系统字体，所以无法设置 font-family\ntip : 在 input 聚焦期间，避免使用 css 动画\ntip : 对于将 input 封装在自定义组件中、而 form 在自定义组件外的情况， form 将不能获得这个自定义组件中 input 的值。此时需要使用自定义组件的 内置 behaviors wx://form-field\ntip : 键盘高度发生变化，keyboardheightchange事件可能会多次触发，开发者对于相同的height值应该忽略掉\nbug : 微信版本 6.3.30, focus 属性设置无效\nbug : 微信版本 6.3.30, placeholder 在聚焦时出现重影问题\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/input.html"
+    },
+    "component label": {
+        "prefix": "label",
+        "body": [
+            "<label >$1</label>",
+            "$2"
+        ],
+        "description": "用来改进表单组件的可用性\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/label.html"
+    },
+    "component picker": {
+        "prefix": "picker",
+        "body": [
+            "<picker >$1</picker>",
+            "$2"
+        ],
+        "description": "从底部弹起的滚动选择器\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/picker.html"
+    },
+    "component picker-view": {
+        "prefix": "picker-view",
+        "body": [
+            "<picker-view >$1</picker-view>",
+            "$2"
+        ],
+        "description": "嵌入页面的滚动选择器\ntip: 滚动时在iOS自带振动反馈，可在系统设置 -> 声音与触感 -> 系统触感反馈中关闭\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/picker-view.html"
+    },
+    "component picker-view-column": {
+        "prefix": "picker-view-column",
+        "body": [
+            "<picker-view-column >$1</picker-view-column>",
+            "$2"
+        ],
+        "description": "滚动选择器子项\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/picker-view-column.html"
+    },
+    "component radio": {
+        "prefix": "radio",
+        "body": [
+            "<radio >$1</radio>",
+            "$2"
+        ],
+        "description": "单选项目\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/radio.html"
+    },
+    "component radio-group": {
+        "prefix": "radio-group",
+        "body": [
+            "<radio-group >$1</radio-group>",
+            "$2"
+        ],
+        "description": "单项选择器，内部由多个 radio 组成\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/radio-group.html"
+    },
+    "component slider": {
+        "prefix": "slider",
+        "body": [
+            "<slider >$1</slider>",
+            "$2"
+        ],
+        "description": "滑动选择器\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/slider.html"
+    },
+    "component switch": {
+        "prefix": "switch",
+        "body": [
+            "<switch >$1</switch>",
+            "$2"
+        ],
+        "description": "开关选择器\ntip: switch类型切换时在iOS自带振动反馈，可在系统设置 -> 声音与触感 -> 系统触感反馈中关闭\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/switch.html"
+    },
+    "component textarea": {
+        "prefix": "textarea",
+        "body": [
+            "<textarea >$1</textarea>",
+            "$2"
+        ],
+        "description": "多行输入框\ntip: textarea 的 blur 事件会晚于页面上的 tap 事件，如果需要在 button 的点击事件获取 textarea，可以使用 form 的 bindsubmit。\ntip: 不建议在多行文本上对用户的输入进行修改，所以 textarea 的 bindinput 处理函数并不会将返回值反映到 textarea 上。\ntip : 键盘高度发生变化，keyboardheightchange事件可能会多次触发，开发者对于相同的height值应该忽略掉\nbug: 微信版本 6.3.30，textarea 在列表渲染时，新增加的 textarea 在自动聚焦时的位置计算错误。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/textarea.html"
+    },
+    "component functional-page-navigator": {
+        "prefix": "functional-page-navigator",
+        "body": [
+            "<functional-page-navigator >$1</functional-page-navigator>",
+            "$2"
+        ],
+        "description": "仅在插件中有效，用于跳转到插件功能页\ntip: 功能页是插件所有者小程序中的一个特殊页面，开发者不能自定义这个页面的外观。\ntip: 在功能页展示时，一些与界面展示相关的接口将被禁用（接口调用返回 fail ）。\ntip: 这个组件本身可以在开发者工具中使用，但功能页的跳转目前不支持在开发者工具中调试，请在真机上测试。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/functional-page-navigator.html"
+    },
+    "component navigator": {
+        "prefix": "navigator",
+        "body": [
+            "<navigator >$1</navigator>",
+            "$2"
+        ],
+        "description": "页面链接\ntip：navigator-hover 默认为 {background-color: rgba(0, 0, 0, 0.1); opacity: 0.7;}, navigator 的子节点背景色应为透明色\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html"
+    },
+    "component audio": {
+        "prefix": "audio",
+        "body": [
+            "<audio >$1</audio>",
+            "$2"
+        ],
+        "description": "音频\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/audio.html"
+    },
+    "component camera": {
+        "prefix": "camera",
+        "body": [
+            "<camera >$1</camera>",
+            "$2"
+        ],
+        "description": "系统相机\ntip: 同一页面只能插入一个 camera 组件\ntip:请注意原生组件使用限制\ntip:onCameraFrame 接口根据 frame-size 返回不同尺寸的原始帧数据，与 Camera 组件展示的图像不同，其实际像素值由系统决定\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/camera.html"
+    },
+    "component image": {
+        "prefix": "image",
+        "body": [
+            "<image >$1</image>",
+            "$2"
+        ],
+        "description": "图片\ntip：image组件默认宽度320px、高度240px\ntip：image组件中二维码/小程序码图片不支持长按识别。仅在wx.previewImage中支持长按识别\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/image.html"
+    },
+    "component live-player": {
+        "prefix": "live-player",
+        "body": [
+            "<live-player >$1</live-player>",
+            "$2"
+        ],
+        "description": "实时音视频播放（v2.9.1 起支持同层渲染）\ntip：live-player 默认宽度300px、高度225px，可通过wxss设置宽高。\ntip：开发者工具上暂不支持。\ntip: 相关介绍和原理可参考此文章\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html"
+    },
+    "component live-pusher": {
+        "prefix": "live-pusher",
+        "body": [
+            "<live-pusher >$1</live-pusher>",
+            "$2"
+        ],
+        "description": "实时音视频录制（v2.9.1 起支持同层渲染）\ntip：开发者工具上暂不支持。\ntip：live-pusher 默认宽度为100%、无默认高度，请通过wxss设置宽高。\ntip：waiting-image 属性在 2.3.0 起完整支持网络路径、临时文件和包内路径。\ntip：请注意原生组件使用限制。\ntip: 相关介绍和原理可参考此文章\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html"
+    },
+    "component video": {
+        "prefix": "video",
+        "body": [
+            "<video >$1</video>",
+            "$2"
+        ],
+        "description": "视频（v2.4.0 起支持同层渲染）\ntip：`video 默认宽度 300px、高度 225px，可通过 wxss 设置宽高。\ntip：从 2.4.0 起 video 支持同层渲染，更多请参考原生组件使用限制\npush 模式，即从当前页跳转至下一页时出现小窗（页面栈push）\npop 模式，即离开当前页面时触发（页面栈pop）\n以上两种路由行为均触发小窗\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/video.html"
+    },
+    "component voip-room": {
+        "prefix": "voip-room",
+        "body": [
+            "<voip-room >$1</voip-room>",
+            "$2"
+        ],
+        "description": "多人音视频对话\ntip：开发者工具上暂不支持\ntip：请注意原生组件使用限制\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/voip-room.html"
+    },
+    "component map": {
+        "prefix": "map",
+        "body": [
+            "<map >$1</map>",
+            "$2"
+        ],
+        "description": "地图（v2.7.0 起支持同层渲染）\ntip：个性化地图暂不支持工具中调试。请先使用微信客户端进行测试。\ntip：地图中的颜色值color/borderColor/bgColor等需使用6位（8位）十六进制表示，8位时后两位表示alpha值，如：#000000AA\ntip：地图组件的经纬度必填, 如果不填经纬度则默认值是北京的经纬度。\ntip: map 组件使用的经纬度是火星坐标系，调用 wx.getLocation 接口需要指定 type 为 gcj02\ntip：从 2.8.0 起 map 支持同层渲染，更多请参考原生组件使用限制\ntip：请注意原生组件使用限制。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/map.html"
+    },
+    "component canvas": {
+        "prefix": "canvas",
+        "body": [
+            "<canvas >$1</canvas>",
+            "$2"
+        ],
+        "description": "画布\ntip：canvas 标签默认宽度300px、高度150px\ntip：同一页面中的 canvas-id 不可重复，如果使用一个已经出现过的 canvas-id，该 canvas 标签对应的画布将被隐藏并不再正常工作\ntip：请注意原生组件使用限制\ntip：开发者工具中默认关闭了 GPU 硬件加速，可在开发者工具的设置中开启“硬件加速”提高 WebGL 的渲染性能\ntip: WebGL 支持通过 getContext('webgl', { alpha: true }) 获取透明背景的画布\ntip: Canvas 2D（新接口）需要显式设置画布宽高 (默认为 300x150)\nbug: 避免设置过大的宽高，在安卓下会有crash的问题\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/canvas.html"
+    },
+    "component web-view": {
+        "prefix": "web-view",
+        "body": [
+            "<web-view >$1</web-view>",
+            "$2"
+        ],
+        "description": "承载网页的容器\ntip：网页内 iframe 的域名也需要配置到域名白名单。\ntip：开发者工具上，可以在 web-view 组件上通过右键 - 调试，打开 web-view 组件的调试。\ntip：每个页面只能有一个 web-view，web-view 会自动铺满整个页面，并覆盖其他组件。\ntip：web-view 网页与小程序之间不支持除 JSSDK 提供的接口之外的通信。\ntip：在 iOS 中，若存在JSSDK接口调用无响应的情况，可在 web-view 的 src 后面加个#wechat_redirect解决。\ntip：避免在链接中带有中文字符，在 iOS 中会有打开白屏的问题，建议加一下 encodeURIComponent\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html"
+    },
+    "component ad": {
+        "prefix": "ad",
+        "body": [
+            "<ad >$1</ad>",
+            "$2"
+        ],
+        "description": "Banner 广告\ntip：在无广告展示时，ad 标签不会占用高度\ntip：ad 组件不支持触发 bindtap 等触摸相关事件\ntip：目前可以给 ad 标签设置 wxss 样式调整广告宽度，以使广告与页面更融洽，但请遵循小程序流量主应用规范\ntip：监听到error回调后，开发者可以针对性的处理，比如隐藏广告组件的父容器，以保证用户体验，但不要移除广告组件，否则将无法收到bindload的回调。\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/ad.html"
+    },
+    "component ad-custom": {
+        "prefix": "ad-custom",
+        "body": [
+            "<ad-custom >$1</ad-custom>",
+            "$2"
+        ],
+        "description": "原生模板 广告\ntip：在无广告展示时，ad-custom 标签不会占用高度\ntip：ad-custom 组件不支持触发 bindtap 等触摸相关事件\ntip：目前可以给 ad-custom 标签设置 wxss 样式调整广告宽度，以使广告与页面更融洽，但请遵循小程序流量主应用规范\ntip：监听到error回调后，开发者可以针对性的处理，比如隐藏广告组件的父容器，以保证用户体验，但不要移除广告组件，否则将无法收到bindload的回调\ntip：不同模板涉及一些不同的使用场景，具体方式请参考模板编辑器\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/ad-custom.html"
+    },
+    "component official-account": {
+        "prefix": "official-account",
+        "body": [
+            "<official-account >$1</official-account>",
+            "$2"
+        ],
+        "description": "公众号关注组件\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/official-account.html"
+    },
+    "component open-data": {
+        "prefix": "open-data",
+        "body": [
+            "<open-data >$1</open-data>",
+            "$2"
+        ],
+        "description": "用于展示微信开放的数据\ntip：只有当前用户在此群内才能拉取到群名称\ntip：关于open-gid的获取请使用 wx.getShareInfo\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/open-data.html"
+    },
+    "component navigation-bar": {
+        "prefix": "navigation-bar",
+        "body": [
+            "<navigation-bar >$1</navigation-bar>",
+            "$2"
+        ],
+        "description": "页面导航条配置节点，用于指定导航栏的一些属性\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/navigation-bar.html"
+    },
+    "component page-meta": {
+        "prefix": "page-meta",
+        "body": [
+            "<page-meta >$1</page-meta>",
+            "$2"
+        ],
+        "description": "页面属性配置节点，用于指定页面的一些属性、监听页面事件\n\n文档链接: https://developers.weixin.qq.com/miniprogram/dev/component/page-meta.html"
+    },
+    "attr src": {
+        "prefix": "src",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindload": {
+        "prefix": "bindload",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr binderror": {
+        "prefix": "binderror",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr JPG": {
+        "prefix": "JPG",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr PNG": {
+        "prefix": "PNG",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr SVG": {
+        "prefix": "SVG",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr WEBP": {
+        "prefix": "WEBP",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr GIF": {
+        "prefix": "GIF",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr BASE64": {
+        "prefix": "BASE64",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-top": {
+        "prefix": "scroll-top",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr min-width": {
+        "prefix": "min-width",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr max-width": {
+        "prefix": "max-width",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr width": {
+        "prefix": "width",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr min-height": {
+        "prefix": "min-height",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr max-height": {
+        "prefix": "max-height",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr height": {
+        "prefix": "height",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr orientation": {
+        "prefix": "orientation",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scale-area": {
+        "prefix": "scale-area",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr direction": {
+        "prefix": "direction",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr inertia": {
+        "prefix": "inertia",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr out-of-bounds": {
+        "prefix": "out-of-bounds",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr x": {
+        "prefix": "x",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr y": {
+        "prefix": "y",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr damping": {
+        "prefix": "damping",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr friction": {
+        "prefix": "friction",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr disabled": {
+        "prefix": "disabled",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scale": {
+        "prefix": "scale",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scale-min": {
+        "prefix": "scale-min",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scale-max": {
+        "prefix": "scale-max",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scale-value": {
+        "prefix": "scale-value",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr animation": {
+        "prefix": "animation",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindchange": {
+        "prefix": "bindchange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindscale": {
+        "prefix": "bindscale",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr htouchmove": {
+        "prefix": "htouchmove",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr vtouchmove": {
+        "prefix": "vtouchmove",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr touch": {
+        "prefix": "touch",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr touch-out-of-bounds": {
+        "prefix": "touch-out-of-bounds",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 空字符串": {
+        "prefix": "空字符串",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-x": {
+        "prefix": "scroll-x",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-y": {
+        "prefix": "scroll-y",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr upper-threshold": {
+        "prefix": "upper-threshold",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr lower-threshold": {
+        "prefix": "lower-threshold",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-left": {
+        "prefix": "scroll-left",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-into-view": {
+        "prefix": "scroll-into-view",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-with-animation": {
+        "prefix": "scroll-with-animation",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-back-to-top": {
+        "prefix": "enable-back-to-top",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-flex": {
+        "prefix": "enable-flex",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-anchoring": {
+        "prefix": "scroll-anchoring",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr refresher-enabled": {
+        "prefix": "refresher-enabled",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr refresher-threshold": {
+        "prefix": "refresher-threshold",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr refresher-default-style": {
+        "prefix": "refresher-default-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr refresher-background": {
+        "prefix": "refresher-background",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr refresher-triggered": {
+        "prefix": "refresher-triggered",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindscrolltoupper": {
+        "prefix": "bindscrolltoupper",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindscrolltolower": {
+        "prefix": "bindscrolltolower",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindscroll": {
+        "prefix": "bindscroll",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindrefresherpulling": {
+        "prefix": "bindrefresherpulling",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindrefresherrefresh": {
+        "prefix": "bindrefresherrefresh",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindrefresherrestore": {
+        "prefix": "bindrefresherrestore",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindrefresherabort": {
+        "prefix": "bindrefresherabort",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr indicator-dots": {
+        "prefix": "indicator-dots",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr indicator-color": {
+        "prefix": "indicator-color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr indicator-active-color": {
+        "prefix": "indicator-active-color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr autoplay": {
+        "prefix": "autoplay",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr current": {
+        "prefix": "current",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr interval": {
+        "prefix": "interval",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr duration": {
+        "prefix": "duration",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr circular": {
+        "prefix": "circular",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr vertical": {
+        "prefix": "vertical",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr previous-margin": {
+        "prefix": "previous-margin",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr next-margin": {
+        "prefix": "next-margin",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr display-multiple-items": {
+        "prefix": "display-multiple-items",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr skip-hidden-item-layout": {
+        "prefix": "skip-hidden-item-layout",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr easing-function": {
+        "prefix": "easing-function",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtransition": {
+        "prefix": "bindtransition",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindanimationfinish": {
+        "prefix": "bindanimationfinish",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr default": {
+        "prefix": "default",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr linear": {
+        "prefix": "linear",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr easeInCubic": {
+        "prefix": "easeInCubic",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr easeOutCubic": {
+        "prefix": "easeOutCubic",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr easeInOutCubic": {
+        "prefix": "easeInOutCubic",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr item-id": {
+        "prefix": "item-id",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr hover-class": {
+        "prefix": "hover-class",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr hover-stop-propagation": {
+        "prefix": "hover-stop-propagation",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr hover-start-time": {
+        "prefix": "hover-start-time",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr hover-stay-time": {
+        "prefix": "hover-stay-time",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr type": {
+        "prefix": "type",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr size": {
+        "prefix": "size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr color": {
+        "prefix": "color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr percent": {
+        "prefix": "percent",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-info": {
+        "prefix": "show-info",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr border-radius": {
+        "prefix": "border-radius",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr font-size": {
+        "prefix": "font-size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr stroke-width": {
+        "prefix": "stroke-width",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr activeColor": {
+        "prefix": "activeColor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr backgroundColor": {
+        "prefix": "backgroundColor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr active": {
+        "prefix": "active",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr active-mode": {
+        "prefix": "active-mode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindactiveend": {
+        "prefix": "bindactiveend",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr nodes": {
+        "prefix": "nodes",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr space": {
+        "prefix": "space",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ensp": {
+        "prefix": "ensp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr emsp": {
+        "prefix": "emsp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr nbsp": {
+        "prefix": "nbsp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr name": {
+        "prefix": "name",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr attrs": {
+        "prefix": "attrs",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr children": {
+        "prefix": "children",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr text": {
+        "prefix": "text",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr a": {
+        "prefix": "a",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr abbr": {
+        "prefix": "abbr",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr address": {
+        "prefix": "address",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr article": {
+        "prefix": "article",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr aside": {
+        "prefix": "aside",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr b": {
+        "prefix": "b",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bdi": {
+        "prefix": "bdi",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bdo": {
+        "prefix": "bdo",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr big": {
+        "prefix": "big",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr blockquote": {
+        "prefix": "blockquote",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr br": {
+        "prefix": "br",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr caption": {
+        "prefix": "caption",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr center": {
+        "prefix": "center",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr cite": {
+        "prefix": "cite",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr code": {
+        "prefix": "code",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr col": {
+        "prefix": "col",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr colgroup": {
+        "prefix": "colgroup",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr dd": {
+        "prefix": "dd",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr del": {
+        "prefix": "del",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr div": {
+        "prefix": "div",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr dl": {
+        "prefix": "dl",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr dt": {
+        "prefix": "dt",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr em": {
+        "prefix": "em",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fieldset": {
+        "prefix": "fieldset",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr font": {
+        "prefix": "font",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr footer": {
+        "prefix": "footer",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr h1": {
+        "prefix": "h1",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr h2": {
+        "prefix": "h2",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr h3": {
+        "prefix": "h3",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr h4": {
+        "prefix": "h4",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr h5": {
+        "prefix": "h5",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr h6": {
+        "prefix": "h6",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr header": {
+        "prefix": "header",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr hr": {
+        "prefix": "hr",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr i": {
+        "prefix": "i",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr img": {
+        "prefix": "img",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ins": {
+        "prefix": "ins",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr label": {
+        "prefix": "label",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr legend": {
+        "prefix": "legend",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr li": {
+        "prefix": "li",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mark": {
+        "prefix": "mark",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr nav": {
+        "prefix": "nav",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ol": {
+        "prefix": "ol",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr p": {
+        "prefix": "p",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr pre": {
+        "prefix": "pre",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr q": {
+        "prefix": "q",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr rt": {
+        "prefix": "rt",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ruby": {
+        "prefix": "ruby",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr s": {
+        "prefix": "s",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr section": {
+        "prefix": "section",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr small": {
+        "prefix": "small",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr span": {
+        "prefix": "span",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr strong": {
+        "prefix": "strong",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr sub": {
+        "prefix": "sub",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr sup": {
+        "prefix": "sup",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr table": {
+        "prefix": "table",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr tbody": {
+        "prefix": "tbody",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr td": {
+        "prefix": "td",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr tfoot": {
+        "prefix": "tfoot",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr th": {
+        "prefix": "th",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr thead": {
+        "prefix": "thead",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr tr": {
+        "prefix": "tr",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr tt": {
+        "prefix": "tt",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr u": {
+        "prefix": "u",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ul": {
+        "prefix": "ul",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr selectable": {
+        "prefix": "selectable",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr decode": {
+        "prefix": "decode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr plain": {
+        "prefix": "plain",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr loading": {
+        "prefix": "loading",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr form-type": {
+        "prefix": "form-type",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr open-type": {
+        "prefix": "open-type",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr lang": {
+        "prefix": "lang",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr session-from": {
+        "prefix": "session-from",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr send-message-title": {
+        "prefix": "send-message-title",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr send-message-path": {
+        "prefix": "send-message-path",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr send-message-img": {
+        "prefix": "send-message-img",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr app-parameter": {
+        "prefix": "app-parameter",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-message-card": {
+        "prefix": "show-message-card",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindgetuserinfo": {
+        "prefix": "bindgetuserinfo",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcontact": {
+        "prefix": "bindcontact",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindgetphonenumber": {
+        "prefix": "bindgetphonenumber",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindopensetting": {
+        "prefix": "bindopensetting",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindlaunchapp": {
+        "prefix": "bindlaunchapp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mini": {
+        "prefix": "mini",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr primary": {
+        "prefix": "primary",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr warn": {
+        "prefix": "warn",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr submit": {
+        "prefix": "submit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr reset": {
+        "prefix": "reset",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr contact": {
+        "prefix": "contact",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr share": {
+        "prefix": "share",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr getPhoneNumber": {
+        "prefix": "getPhoneNumber",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr getUserInfo": {
+        "prefix": "getUserInfo",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr launchApp": {
+        "prefix": "launchApp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr openSetting": {
+        "prefix": "openSetting",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr feedback": {
+        "prefix": "feedback",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr en": {
+        "prefix": "en",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr zh_CN": {
+        "prefix": "zh_CN",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr zh_TW": {
+        "prefix": "zh_TW",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr value": {
+        "prefix": "value",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr checked": {
+        "prefix": "checked",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr read-only": {
+        "prefix": "read-only",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr placeholder": {
+        "prefix": "placeholder",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-img-size": {
+        "prefix": "show-img-size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-img-toolbar": {
+        "prefix": "show-img-toolbar",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-img-resize": {
+        "prefix": "show-img-resize",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindready": {
+        "prefix": "bindready",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindfocus": {
+        "prefix": "bindfocus",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindblur": {
+        "prefix": "bindblur",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindinput": {
+        "prefix": "bindinput",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindstatuschange": {
+        "prefix": "bindstatuschange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 行内元素": {
+        "prefix": "行内元素",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 块级元素": {
+        "prefix": "块级元素",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 块级样式": {
+        "prefix": "块级样式",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 行内样式": {
+        "prefix": "行内样式",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr report-submit": {
+        "prefix": "report-submit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr report-submit-timeout": {
+        "prefix": "report-submit-timeout",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindsubmit": {
+        "prefix": "bindsubmit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindreset": {
+        "prefix": "bindreset",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr password": {
+        "prefix": "password",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr placeholder-style": {
+        "prefix": "placeholder-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr placeholder-class": {
+        "prefix": "placeholder-class",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr maxlength": {
+        "prefix": "maxlength",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr cursor-spacing": {
+        "prefix": "cursor-spacing",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr auto-focus": {
+        "prefix": "auto-focus",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr focus": {
+        "prefix": "focus",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr confirm-type": {
+        "prefix": "confirm-type",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr confirm-hold": {
+        "prefix": "confirm-hold",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr cursor": {
+        "prefix": "cursor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr selection-start": {
+        "prefix": "selection-start",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr selection-end": {
+        "prefix": "selection-end",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr adjust-position": {
+        "prefix": "adjust-position",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr hold-keyboard": {
+        "prefix": "hold-keyboard",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindconfirm": {
+        "prefix": "bindconfirm",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindkeyboardheightchange": {
+        "prefix": "bindkeyboardheightchange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr number": {
+        "prefix": "number",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr idcard": {
+        "prefix": "idcard",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr digit": {
+        "prefix": "digit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr send": {
+        "prefix": "send",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr search": {
+        "prefix": "search",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr next": {
+        "prefix": "next",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr go": {
+        "prefix": "go",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr done": {
+        "prefix": "done",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr for": {
+        "prefix": "for",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr header-text": {
+        "prefix": "header-text",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mode": {
+        "prefix": "mode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcancel": {
+        "prefix": "bindcancel",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr selector": {
+        "prefix": "selector",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr multiSelector": {
+        "prefix": "multiSelector",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr time": {
+        "prefix": "time",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr date": {
+        "prefix": "date",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr region": {
+        "prefix": "region",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr range": {
+        "prefix": "range",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr range-key": {
+        "prefix": "range-key",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcolumnchange": {
+        "prefix": "bindcolumnchange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr start": {
+        "prefix": "start",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr end": {
+        "prefix": "end",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fields": {
+        "prefix": "fields",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr year": {
+        "prefix": "year",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr month": {
+        "prefix": "month",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr day": {
+        "prefix": "day",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr custom-item": {
+        "prefix": "custom-item",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr indicator-style": {
+        "prefix": "indicator-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr indicator-class": {
+        "prefix": "indicator-class",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mask-style": {
+        "prefix": "mask-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mask-class": {
+        "prefix": "mask-class",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindpickstart": {
+        "prefix": "bindpickstart",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindpickend": {
+        "prefix": "bindpickend",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr min": {
+        "prefix": "min",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr max": {
+        "prefix": "max",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr step": {
+        "prefix": "step",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr selected-color": {
+        "prefix": "selected-color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr block-size": {
+        "prefix": "block-size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr block-color": {
+        "prefix": "block-color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-value": {
+        "prefix": "show-value",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindchanging": {
+        "prefix": "bindchanging",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr auto-height": {
+        "prefix": "auto-height",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fixed": {
+        "prefix": "fixed",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-confirm-bar": {
+        "prefix": "show-confirm-bar",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr disable-default-padding": {
+        "prefix": "disable-default-padding",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindlinechange": {
+        "prefix": "bindlinechange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr version": {
+        "prefix": "version",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr args": {
+        "prefix": "args",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindsuccess": {
+        "prefix": "bindsuccess",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindfail": {
+        "prefix": "bindfail",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr develop": {
+        "prefix": "develop",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr trial": {
+        "prefix": "trial",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr release": {
+        "prefix": "release",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr loginAndGetUserInfo": {
+        "prefix": "loginAndGetUserInfo",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr requestPayment": {
+        "prefix": "requestPayment",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr chooseAddress": {
+        "prefix": "chooseAddress",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr target": {
+        "prefix": "target",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr url": {
+        "prefix": "url",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr delta": {
+        "prefix": "delta",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr app-id": {
+        "prefix": "app-id",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr path": {
+        "prefix": "path",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr extra-data": {
+        "prefix": "extra-data",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcomplete": {
+        "prefix": "bindcomplete",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr self": {
+        "prefix": "self",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr miniProgram": {
+        "prefix": "miniProgram",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr navigate": {
+        "prefix": "navigate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr redirect": {
+        "prefix": "redirect",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr switchTab": {
+        "prefix": "switchTab",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr reLaunch": {
+        "prefix": "reLaunch",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr navigateBack": {
+        "prefix": "navigateBack",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr exit": {
+        "prefix": "exit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr id": {
+        "prefix": "id",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr loop": {
+        "prefix": "loop",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr controls": {
+        "prefix": "controls",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr poster": {
+        "prefix": "poster",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr author": {
+        "prefix": "author",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindplay": {
+        "prefix": "bindplay",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindpause": {
+        "prefix": "bindpause",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtimeupdate": {
+        "prefix": "bindtimeupdate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindended": {
+        "prefix": "bindended",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1": {
+        "prefix": "1",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2": {
+        "prefix": "2",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3": {
+        "prefix": "3",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 4": {
+        "prefix": "4",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr resolution": {
+        "prefix": "resolution",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr device-position": {
+        "prefix": "device-position",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr flash": {
+        "prefix": "flash",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr frame-size": {
+        "prefix": "frame-size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindstop": {
+        "prefix": "bindstop",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindinitdone": {
+        "prefix": "bindinitdone",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindscancode": {
+        "prefix": "bindscancode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr normal": {
+        "prefix": "normal",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scanCode": {
+        "prefix": "scanCode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr low": {
+        "prefix": "low",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr medium": {
+        "prefix": "medium",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr high": {
+        "prefix": "high",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr front": {
+        "prefix": "front",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr back": {
+        "prefix": "back",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr auto": {
+        "prefix": "auto",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr on": {
+        "prefix": "on",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr off": {
+        "prefix": "off",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr torch": {
+        "prefix": "torch",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr large": {
+        "prefix": "large",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr webp": {
+        "prefix": "webp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr lazy-load": {
+        "prefix": "lazy-load",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-menu-by-longpress": {
+        "prefix": "show-menu-by-longpress",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scaleToFill": {
+        "prefix": "scaleToFill",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr aspectFit": {
+        "prefix": "aspectFit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr aspectFill": {
+        "prefix": "aspectFill",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr widthFix": {
+        "prefix": "widthFix",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr heightFix": {
+        "prefix": "heightFix",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr top": {
+        "prefix": "top",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bottom": {
+        "prefix": "bottom",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr left": {
+        "prefix": "left",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr right": {
+        "prefix": "right",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr top left": {
+        "prefix": "top left",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr top right": {
+        "prefix": "top right",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bottom left": {
+        "prefix": "bottom left",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bottom right": {
+        "prefix": "bottom right",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 社交": {
+        "prefix": "社交",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 教育": {
+        "prefix": "教育",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 医疗": {
+        "prefix": "医疗",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 金融": {
+        "prefix": "金融",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 汽车": {
+        "prefix": "汽车",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 政府主体帐号": {
+        "prefix": "政府主体帐号",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 工具": {
+        "prefix": "工具",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr IT科技": {
+        "prefix": "IT科技",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr muted": {
+        "prefix": "muted",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr object-fit": {
+        "prefix": "object-fit",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr background-mute": {
+        "prefix": "background-mute",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr min-cache": {
+        "prefix": "min-cache",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr max-cache": {
+        "prefix": "max-cache",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr sound-mode": {
+        "prefix": "sound-mode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr auto-pause-if-navigate": {
+        "prefix": "auto-pause-if-navigate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr auto-pause-if-open-native": {
+        "prefix": "auto-pause-if-open-native",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr picture-in-picture-mode": {
+        "prefix": "picture-in-picture-mode",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindstatechange": {
+        "prefix": "bindstatechange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindfullscreenchange": {
+        "prefix": "bindfullscreenchange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindnetstatus": {
+        "prefix": "bindnetstatus",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindaudiovolumenotify": {
+        "prefix": "bindaudiovolumenotify",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindenterpictureinpicture": {
+        "prefix": "bindenterpictureinpicture",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindleavepictureinpicture": {
+        "prefix": "bindleavepictureinpicture",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr live": {
+        "prefix": "live",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr RTC": {
+        "prefix": "RTC",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr horizontal": {
+        "prefix": "horizontal",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr contain": {
+        "prefix": "contain",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fillCrop": {
+        "prefix": "fillCrop",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr speaker": {
+        "prefix": "speaker",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ear": {
+        "prefix": "ear",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr []": {
+        "prefix": "[]",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr push": {
+        "prefix": "push",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr pop": {
+        "prefix": "pop",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2001": {
+        "prefix": "2001",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2002": {
+        "prefix": "2002",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2003": {
+        "prefix": "2003",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2004": {
+        "prefix": "2004",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2005": {
+        "prefix": "2005",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2006": {
+        "prefix": "2006",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2007": {
+        "prefix": "2007",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2008": {
+        "prefix": "2008",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2009": {
+        "prefix": "2009",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -2301": {
+        "prefix": "-2301",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -2302": {
+        "prefix": "-2302",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2101": {
+        "prefix": "2101",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2102": {
+        "prefix": "2102",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2103": {
+        "prefix": "2103",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2104": {
+        "prefix": "2104",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2105": {
+        "prefix": "2105",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2106": {
+        "prefix": "2106",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2107": {
+        "prefix": "2107",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 2108": {
+        "prefix": "2108",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3001": {
+        "prefix": "3001",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3002": {
+        "prefix": "3002",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3003": {
+        "prefix": "3003",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3005": {
+        "prefix": "3005",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr videoBitrate": {
+        "prefix": "videoBitrate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr audioBitrate": {
+        "prefix": "audioBitrate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr videoFPS": {
+        "prefix": "videoFPS",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr videoGOP": {
+        "prefix": "videoGOP",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr netSpeed": {
+        "prefix": "netSpeed",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr netJitter": {
+        "prefix": "netJitter",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr videoWidth": {
+        "prefix": "videoWidth",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr videoHeight": {
+        "prefix": "videoHeight",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr autopush": {
+        "prefix": "autopush",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-camera": {
+        "prefix": "enable-camera",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr beauty": {
+        "prefix": "beauty",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr whiteness": {
+        "prefix": "whiteness",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr aspect": {
+        "prefix": "aspect",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr min-bitrate": {
+        "prefix": "min-bitrate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr max-bitrate": {
+        "prefix": "max-bitrate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr audio-quality": {
+        "prefix": "audio-quality",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr waiting-image": {
+        "prefix": "waiting-image",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr waiting-image-hash": {
+        "prefix": "waiting-image-hash",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr zoom": {
+        "prefix": "zoom",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mirror": {
+        "prefix": "mirror",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr remote-mirror": {
+        "prefix": "remote-mirror",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr local-mirror": {
+        "prefix": "local-mirror",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr audio-reverb-type": {
+        "prefix": "audio-reverb-type",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-mic": {
+        "prefix": "enable-mic",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-agc": {
+        "prefix": "enable-agc",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-ans": {
+        "prefix": "enable-ans",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr audio-volume-type": {
+        "prefix": "audio-volume-type",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr video-width": {
+        "prefix": "video-width",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr video-height": {
+        "prefix": "video-height",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr beauty-style": {
+        "prefix": "beauty-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr filter": {
+        "prefix": "filter",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindbgmstart": {
+        "prefix": "bindbgmstart",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindbgmprogress": {
+        "prefix": "bindbgmprogress",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindbgmcomplete": {
+        "prefix": "bindbgmcomplete",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable": {
+        "prefix": "enable",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr disable": {
+        "prefix": "disable",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 0": {
+        "prefix": "0",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 5": {
+        "prefix": "5",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 6": {
+        "prefix": "6",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 7": {
+        "prefix": "7",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr media": {
+        "prefix": "media",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr voicecall": {
+        "prefix": "voicecall",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr smooth": {
+        "prefix": "smooth",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr nature": {
+        "prefix": "nature",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr standard": {
+        "prefix": "standard",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr pink": {
+        "prefix": "pink",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr nostalgia": {
+        "prefix": "nostalgia",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr blues": {
+        "prefix": "blues",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr romantic": {
+        "prefix": "romantic",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr cool": {
+        "prefix": "cool",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fresher": {
+        "prefix": "fresher",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr solor": {
+        "prefix": "solor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr aestheticism": {
+        "prefix": "aestheticism",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr whitening": {
+        "prefix": "whitening",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr cerisered": {
+        "prefix": "cerisered",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 10001": {
+        "prefix": "10001",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 10002": {
+        "prefix": "10002",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 10003": {
+        "prefix": "10003",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 10004": {
+        "prefix": "10004",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1001": {
+        "prefix": "1001",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1002": {
+        "prefix": "1002",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1003": {
+        "prefix": "1003",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1004": {
+        "prefix": "1004",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1005": {
+        "prefix": "1005",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1006": {
+        "prefix": "1006",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1007": {
+        "prefix": "1007",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1008": {
+        "prefix": "1008",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1301": {
+        "prefix": "-1301",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1302": {
+        "prefix": "-1302",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1303": {
+        "prefix": "-1303",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1304": {
+        "prefix": "-1304",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1305": {
+        "prefix": "-1305",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1306": {
+        "prefix": "-1306",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1307": {
+        "prefix": "-1307",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1308": {
+        "prefix": "-1308",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1309": {
+        "prefix": "-1309",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1310": {
+        "prefix": "-1310",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1311": {
+        "prefix": "-1311",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1312": {
+        "prefix": "-1312",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1101": {
+        "prefix": "1101",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1102": {
+        "prefix": "1102",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1103": {
+        "prefix": "1103",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1104": {
+        "prefix": "1104",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1105": {
+        "prefix": "1105",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1106": {
+        "prefix": "1106",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3004": {
+        "prefix": "3004",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr danmu-list": {
+        "prefix": "danmu-list",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr danmu-btn": {
+        "prefix": "danmu-btn",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-danmu": {
+        "prefix": "enable-danmu",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr initial-time": {
+        "prefix": "initial-time",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr page-gesture": {
+        "prefix": "page-gesture",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-progress": {
+        "prefix": "show-progress",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-fullscreen-btn": {
+        "prefix": "show-fullscreen-btn",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-play-btn": {
+        "prefix": "show-play-btn",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-center-play-btn": {
+        "prefix": "show-center-play-btn",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-progress-gesture": {
+        "prefix": "enable-progress-gesture",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-mute-btn": {
+        "prefix": "show-mute-btn",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr title": {
+        "prefix": "title",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr play-btn-position": {
+        "prefix": "play-btn-position",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-play-gesture": {
+        "prefix": "enable-play-gesture",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr vslide-gesture": {
+        "prefix": "vslide-gesture",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr vslide-gesture-in-fullscreen": {
+        "prefix": "vslide-gesture-in-fullscreen",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ad-unit-id": {
+        "prefix": "ad-unit-id",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr poster-for-crawler": {
+        "prefix": "poster-for-crawler",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-casting-button": {
+        "prefix": "show-casting-button",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr picture-in-picture-show-progress": {
+        "prefix": "picture-in-picture-show-progress",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-auto-rotation": {
+        "prefix": "enable-auto-rotation",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-screen-lock-button": {
+        "prefix": "show-screen-lock-button",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindwaiting": {
+        "prefix": "bindwaiting",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindprogress": {
+        "prefix": "bindprogress",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindloadedmetadata": {
+        "prefix": "bindloadedmetadata",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcontrolstoggle": {
+        "prefix": "bindcontrolstoggle",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindseekcomplete": {
+        "prefix": "bindseekcomplete",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 90": {
+        "prefix": "90",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -90": {
+        "prefix": "-90",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fill": {
+        "prefix": "fill",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr cover": {
+        "prefix": "cover",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mp4": {
+        "prefix": "mp4",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr mov": {
+        "prefix": "mov",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr m4v": {
+        "prefix": "m4v",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 3gp": {
+        "prefix": "3gp",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr avi": {
+        "prefix": "avi",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr m3u8": {
+        "prefix": "m3u8",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr webm": {
+        "prefix": "webm",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr H.264": {
+        "prefix": "H.264",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr HEVC": {
+        "prefix": "HEVC",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr MPEG-4": {
+        "prefix": "MPEG-4",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr VP9": {
+        "prefix": "VP9",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr IT 科技": {
+        "prefix": "IT 科技",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr openid": {
+        "prefix": "openid",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr longitude": {
+        "prefix": "longitude",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr latitude": {
+        "prefix": "latitude",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr markers": {
+        "prefix": "markers",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr covers": {
+        "prefix": "covers",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr polyline": {
+        "prefix": "polyline",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr circles": {
+        "prefix": "circles",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr include-points": {
+        "prefix": "include-points",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-location": {
+        "prefix": "show-location",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr polygons": {
+        "prefix": "polygons",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr subkey": {
+        "prefix": "subkey",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr layer-style": {
+        "prefix": "layer-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr rotate": {
+        "prefix": "rotate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr skew": {
+        "prefix": "skew",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-3D": {
+        "prefix": "enable-3D",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-compass": {
+        "prefix": "show-compass",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr show-scale": {
+        "prefix": "show-scale",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-overlooking": {
+        "prefix": "enable-overlooking",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-zoom": {
+        "prefix": "enable-zoom",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-scroll": {
+        "prefix": "enable-scroll",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-rotate": {
+        "prefix": "enable-rotate",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-satellite": {
+        "prefix": "enable-satellite",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr enable-traffic": {
+        "prefix": "enable-traffic",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr setting": {
+        "prefix": "setting",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtap": {
+        "prefix": "bindtap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindmarkertap": {
+        "prefix": "bindmarkertap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindlabeltap": {
+        "prefix": "bindlabeltap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcontroltap": {
+        "prefix": "bindcontroltap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindcallouttap": {
+        "prefix": "bindcallouttap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindupdated": {
+        "prefix": "bindupdated",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindregionchange": {
+        "prefix": "bindregionchange",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindpoitap": {
+        "prefix": "bindpoitap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr zIndex": {
+        "prefix": "zIndex",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr iconPath": {
+        "prefix": "iconPath",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr alpha": {
+        "prefix": "alpha",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr callout": {
+        "prefix": "callout",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr customCallout": {
+        "prefix": "customCallout",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr anchor": {
+        "prefix": "anchor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr aria-label": {
+        "prefix": "aria-label",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr content": {
+        "prefix": "content",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fontSize": {
+        "prefix": "fontSize",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr borderRadius": {
+        "prefix": "borderRadius",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr borderWidth": {
+        "prefix": "borderWidth",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr borderColor": {
+        "prefix": "borderColor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bgColor": {
+        "prefix": "bgColor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr padding": {
+        "prefix": "padding",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr display": {
+        "prefix": "display",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr textAlign": {
+        "prefix": "textAlign",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr anchorX": {
+        "prefix": "anchorX",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr anchorY": {
+        "prefix": "anchorY",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr points": {
+        "prefix": "points",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr dottedLine": {
+        "prefix": "dottedLine",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr arrowLine": {
+        "prefix": "arrowLine",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr arrowIconPath": {
+        "prefix": "arrowIconPath",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr strokeWidth": {
+        "prefix": "strokeWidth",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr strokeColor": {
+        "prefix": "strokeColor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr fillColor": {
+        "prefix": "fillColor",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr radius": {
+        "prefix": "radius",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr position": {
+        "prefix": "position",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr clickable": {
+        "prefix": "clickable",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr causedBy": {
+        "prefix": "causedBy",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 比例": {
+        "prefix": "比例",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr canvas-id": {
+        "prefix": "canvas-id",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr disable-scroll": {
+        "prefix": "disable-scroll",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtouchstart": {
+        "prefix": "bindtouchstart",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtouchmove": {
+        "prefix": "bindtouchmove",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtouchend": {
+        "prefix": "bindtouchend",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindtouchcancel": {
+        "prefix": "bindtouchcancel",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindlongtap": {
+        "prefix": "bindlongtap",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindmessage": {
+        "prefix": "bindmessage",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.navigateTo": {
+        "prefix": "wx.miniProgram.navigateTo",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.navigateBack": {
+        "prefix": "wx.miniProgram.navigateBack",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.switchTab": {
+        "prefix": "wx.miniProgram.switchTab",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.reLaunch": {
+        "prefix": "wx.miniProgram.reLaunch",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.redirectTo": {
+        "prefix": "wx.miniProgram.redirectTo",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.postMessage": {
+        "prefix": "wx.miniProgram.postMessage",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr wx.miniProgram.getEnv": {
+        "prefix": "wx.miniProgram.getEnv",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 判断客户端是否支持js": {
+        "prefix": "判断客户端是否支持js",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 图像接口": {
+        "prefix": "图像接口",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ": {
+        "prefix": "",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 音频接口": {
+        "prefix": "音频接口",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 智能接口": {
+        "prefix": "智能接口",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 设备信息": {
+        "prefix": "设备信息",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 地理位置": {
+        "prefix": "地理位置",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 摇一摇周边": {
+        "prefix": "摇一摇周边",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 微信扫一扫": {
+        "prefix": "微信扫一扫",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 微信卡券": {
+        "prefix": "微信卡券",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 长按识别": {
+        "prefix": "长按识别",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr unit-id": {
+        "prefix": "unit-id",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr ad-intervals": {
+        "prefix": "ad-intervals",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindclose": {
+        "prefix": "bindclose",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr 1000": {
+        "prefix": "1000",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr status": {
+        "prefix": "status",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr errMsg": {
+        "prefix": "errMsg",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -2": {
+        "prefix": "-2",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr -1": {
+        "prefix": "-1",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr open-gid": {
+        "prefix": "open-gid",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr default-text": {
+        "prefix": "default-text",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr default-avatar": {
+        "prefix": "default-avatar",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr groupName": {
+        "prefix": "groupName",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userNickName": {
+        "prefix": "userNickName",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userAvatarUrl": {
+        "prefix": "userAvatarUrl",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userGender": {
+        "prefix": "userGender",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userCity": {
+        "prefix": "userCity",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userProvince": {
+        "prefix": "userProvince",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userCountry": {
+        "prefix": "userCountry",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr userLanguage": {
+        "prefix": "userLanguage",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr front-color": {
+        "prefix": "front-color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr background-color": {
+        "prefix": "background-color",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr color-animation-duration": {
+        "prefix": "color-animation-duration",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr color-animation-timing-func": {
+        "prefix": "color-animation-timing-func",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr background-text-style": {
+        "prefix": "background-text-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr background-color-top": {
+        "prefix": "background-color-top",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr background-color-bottom": {
+        "prefix": "background-color-bottom",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr scroll-duration": {
+        "prefix": "scroll-duration",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr page-style": {
+        "prefix": "page-style",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr body-font-size": {
+        "prefix": "body-font-size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr root-font-size": {
+        "prefix": "root-font-size",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindresize": {
+        "prefix": "bindresize",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    },
+    "attr bindscrolldone": {
+        "prefix": "bindscrolldone",
+        "body": [
+            "attr=\"$1\" $2"
+        ]
+    }
+}
