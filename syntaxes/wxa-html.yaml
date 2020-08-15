@@ -2,7 +2,7 @@
 ---
 name: Wxa Template
 scopeName: text.html.wxa-html
-fileTypes: []
+fileTypes: ['wxml']
 uuid: 8cc6610500b8f848ad2fdf81122a8853
 
 patterns:
@@ -137,6 +137,8 @@ patterns:
   patterns:
   - include: '#tag-stuff'
 
+- include: '#wxs-tag'
+
 - name: meta.tag.other.html
   begin: (</?)([a-zA-Z0-9:-]+)
   beginCaptures:
@@ -147,6 +149,10 @@ patterns:
     '1': {name: punctuation.definition.tag.end.html}
   patterns:
   - include: '#tag-stuff'
+
+- name: meta.other.attribute-name.html
+  patterns:
+  - include: '#wxa-directives'
 
 - include: '#entities'
 
@@ -171,14 +177,38 @@ repository:
 
   wxa-directives:
     name: meta.directive.wxa
-    begin: ((?:\b(wx:)|(bind|bind:))([a-zA-Z0-9\-_]+)(?:\:([a-zA-Z0-9\-_]+))?(?:\.([a-zA-Z0-9\-_]+))*)\s*(=)
+    begin: (?:\b(wx|bind|catch|mut-bind|capture-bind))(:)?([a-zA-Z0-9\-_]+)(?:\:([a-zA-Z0-9\-_]+))?(?:\.([a-zA-Z0-9\-_]+))*\s*(=)?
     end: (?<='|")|(?=[\s<>`])
     captures:
-      '1': {name: entity.other.attribute-name.html}
-      '7': {name: punctuation.separator.key-value.html}
+      '1': {name: entity.other.attribute-name.namespace.xml}
+      '2': {name: punctuation.separator.namespace.xml}
+      '3': {name: entity.other.attribute-name.localname.xml}
+      '4': {name: punctuation.separator.key-value.html}
+      '5': {name: entity.other.attribute-name.html}
+      '6': {name: punctuation.separator.key-value.html}
     patterns: 
     - include: '#string-double-quoted'
     - include: '#string-single-quoted'
+
+  wxs-tag: 
+    name: meta.wxs
+    begin: (<)(wxs)(?![^/>]*/>\s*$)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.html}
+      '2': {name: entity.name.tag.wxs.html}
+    end: (</)(wxs)(>)
+    endCaptures:
+      '1': {name: punctuation.definition.tag.begin.html}
+      '2': {name: entity.name.tag.script.html}
+      '3': {name: punctuation.definition.tag.end.html}
+    patterns:
+    - contentName: wxs
+      begin: (>)
+      beginCaptures:
+        '1': {name: punctuation.definition.tag.end.html}
+      end: (?=</wxs>)
+      patterns:
+        - include: source.wxs
 
   entities:
     patterns:
@@ -259,7 +289,8 @@ repository:
 
   tag-stuff:
     patterns:
-    # - include: '#wxa-directives'
+    - include: '#wxa-directives'
+    - include: '#wxs-tag'
     - include: '#tag-id-attribute'
     - include: '#tag-generic-attribute'
     - include: '#string-double-quoted'
