@@ -79,6 +79,8 @@ const main = async () => {
 
   let isLayout = kind => /视图容器/.test(kind) || /基础内容/.test(kind);
 
+  let isValidAttr = (attr) => /^[a-zA-Z][a-zA-Z0-9\-_]+$/.test(attr);
+
   for (const comKind of components) {
     if (isSpec(comKind.kind)) continue;
 
@@ -87,18 +89,15 @@ const main = async () => {
 
       com.detailDesc = $com('#docContent > div > p:nth-child(1)').text();
 
-      $com('#docContent .table-wrp table tbody tr').each((idx, td) => {
+      $com('#docContent h1 ~ .table-wrp table tbody tr').each((idx, td) => {
         com.attrs = com.attrs || '';
         com.attrs +=
           $com(td)
             .find('td:nth-child(1)')
             .text() + ' ';
-
-        attrsSet.add(
-          $com(td)
-            .find('td:nth-child(1)')
-            .text()
-        );
+        
+          if(isValidAttr($com(td).find('td:nth-child(1)').text()))
+            attrsSet.add($com(td).find('td:nth-child(1)').text());
       });
 
       $com('#Bug-Tip ~ ol li').each((idx, li) => {
@@ -124,7 +123,7 @@ const main = async () => {
   attrsSet.forEach(attr => {
     attrSnippets.push({
       prefix: attr,
-      body: ['attr="$1" $2']
+      body: [`${attr}="$1" $2`]
     });
   });
   
