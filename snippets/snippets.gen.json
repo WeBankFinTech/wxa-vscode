@@ -698,6 +698,54 @@
             "refresher-triggered=\"$1\" $2"
         ]
     },
+    "attr enhanced": {
+        "prefix": "enhanced",
+        "body": [
+            "enhanced=\"$1\" $2"
+        ]
+    },
+    "attr bounces": {
+        "prefix": "bounces",
+        "body": [
+            "bounces=\"$1\" $2"
+        ]
+    },
+    "attr show-scrollbar": {
+        "prefix": "show-scrollbar",
+        "body": [
+            "show-scrollbar=\"$1\" $2"
+        ]
+    },
+    "attr paging-enabled": {
+        "prefix": "paging-enabled",
+        "body": [
+            "paging-enabled=\"$1\" $2"
+        ]
+    },
+    "attr fast-deceleration": {
+        "prefix": "fast-deceleration",
+        "body": [
+            "fast-deceleration=\"$1\" $2"
+        ]
+    },
+    "attr binddragstart": {
+        "prefix": "binddragstart",
+        "body": [
+            "binddragstart=\"$1\" $2"
+        ]
+    },
+    "attr binddragging": {
+        "prefix": "binddragging",
+        "body": [
+            "binddragging=\"$1\" $2"
+        ]
+    },
+    "attr binddragend": {
+        "prefix": "binddragend",
+        "body": [
+            "binddragend=\"$1\" $2"
+        ]
+    },
     "attr bindscrolltoupper": {
         "prefix": "bindscrolltoupper",
         "body": [
@@ -806,16 +854,16 @@
             "next-margin=\"$1\" $2"
         ]
     },
+    "attr snap-to-edge": {
+        "prefix": "snap-to-edge",
+        "body": [
+            "snap-to-edge=\"$1\" $2"
+        ]
+    },
     "attr display-multiple-items": {
         "prefix": "display-multiple-items",
         "body": [
             "display-multiple-items=\"$1\" $2"
-        ]
-    },
-    "attr skip-hidden-item-layout": {
-        "prefix": "skip-hidden-item-layout",
-        "body": [
-            "skip-hidden-item-layout=\"$1\" $2"
         ]
     },
     "attr easing-function": {
@@ -870,6 +918,12 @@
         "prefix": "item-id",
         "body": [
             "item-id=\"$1\" $2"
+        ]
+    },
+    "attr skip-hidden-item-layout": {
+        "prefix": "skip-hidden-item-layout",
+        "body": [
+            "skip-hidden-item-layout=\"$1\" $2"
         ]
     },
     "attr hover-class": {
@@ -1382,6 +1436,12 @@
             "selectable=\"$1\" $2"
         ]
     },
+    "attr user-select": {
+        "prefix": "user-select",
+        "body": [
+            "user-select=\"$1\" $2"
+        ]
+    },
     "attr decode": {
         "prefix": "decode",
         "body": [
@@ -1716,6 +1776,12 @@
         "prefix": "confirm-type",
         "body": [
             "confirm-type=\"$1\" $2"
+        ]
+    },
+    "attr always-embed": {
+        "prefix": "always-embed",
+        "body": [
+            "always-embed=\"$1\" $2"
         ]
     },
     "attr confirm-hold": {
@@ -3536,6 +3602,18 @@
             "ad-intervals=\"$1\" $2"
         ]
     },
+    "attr ad-type": {
+        "prefix": "ad-type",
+        "body": [
+            "ad-type=\"$1\" $2"
+        ]
+    },
+    "attr ad-theme": {
+        "prefix": "ad-theme",
+        "body": [
+            "ad-theme=\"$1\" $2"
+        ]
+    },
     "attr bindclose": {
         "prefix": "bindclose",
         "body": [
@@ -3662,6 +3740,12 @@
             "background-color-bottom=\"$1\" $2"
         ]
     },
+    "attr root-background-color": {
+        "prefix": "root-background-color",
+        "body": [
+            "root-background-color=\"$1\" $2"
+        ]
+    },
     "attr scroll-duration": {
         "prefix": "scroll-duration",
         "body": [
@@ -3684,6 +3768,12 @@
         "prefix": "root-font-size",
         "body": [
             "root-font-size=\"$1\" $2"
+        ]
+    },
+    "attr page-orientation": {
+        "prefix": "page-orientation",
+        "body": [
+            "page-orientation=\"$1\" $2"
         ]
     },
     "attr bindresize": {
